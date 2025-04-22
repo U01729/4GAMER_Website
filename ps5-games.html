@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألعاب PS5 - 4GAMER</title>
+    <meta name="description" content="استكشف مكتبة شاملة من ألعاب PS5 المعربة وغير المعربة مع روابط تحميل مباشرة">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/game-grid.css">
+    <link rel="stylesheet" href="css/ads.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link active">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow active"></i>
+                </a>
+                <ul class="dropdown-submenu active">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink active">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- رأس الصفحة -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">ألعاب PS5</h1>
+            <p class="page-subtitle">استكشف مكتبة شاملة من ألعاب PS5 المعربة وغير المعربة مع روابط تحميل مباشرة</p>
+        </div>
+    </header>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-horizontal-large">
+                <div class="ad-title">مساحة إعلانية</div>
+                <div class="ad-description">يمكن إضافة إعلانات ربحية هنا</div>
+                <div class="ad-close"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم تصفية الألعاب -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="category-filter">التصنيف:</label>
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">الكل</option>
+                        <option value="action">أكشن</option>
+                        <option value="adventure">مغامرة</option>
+                        <option value="rpg">ألعاب أدوار</option>
+                        <option value="sports">رياضة</option>
+                        <option value="racing">سباق</option>
+                        <option value="fighting">قتال</option>
+                        <option value="horror">رعب</option>
+                        <option value="openworld">عالم مفتوح</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="language-filter">اللغة:</label>
+                    <select id="language-filter" class="filter-select">
+                        <option value="all">الكل</option>
+                        <option value="arabic">معربة</option>
+                        <option value="official-arabic">معربة رسمياً</option>
+                        <option value="non-arabic">غير معربة</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-filter">الترتيب:</label>
+                    <select id="sort-filter" class="filter-select">
+                        <option value="newest">الأحدث</option>
+                        <option value="oldest">الأقدم</option>
+                        <option value="alphabetical">أبجدي</option>
+                        <option value="size-asc">الحجم (تصاعدي)</option>
+                        <option value="size-desc">الحجم (تنازلي)</option>
+                    </select>
+                </div>
+                
+                <button id="filter-apply" class="btn">تطبيق</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الألعاب المعربة رسمياً -->
+    <section class="games-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-container">
+                    <i class="fas fa-language section-icon"></i>
+                    <h2 class="section-title">ألعاب PS5 المعربة رسمياً</h2>
+                </div>
+            </div>
+            
+            <div class="games-grid" id="official-arabic-games">
+                <!-- ستتم إضافة بطاقات الألعاب هنا عن طريق JavaScript -->
+                <div class="game-card" data-external-image="https://example.com/images/games/god-of-war-ragnarok.jpg" data-alt="God of War Ragnarök">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة رسمياً</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">God of War Ragnarök</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>85 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/horizon-forbidden-west.jpg" data-alt="Horizon Forbidden West">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة رسمياً</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Horizon Forbidden West</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة، عالم مفتوح</span>
+                            <span>98 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/ratchet-clank-rift-apart.jpg" data-alt="Ratchet & Clank: Rift Apart">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة رسمياً</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Ratchet & Clank: Rift Apart</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>42 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/demons-souls.jpg" data-alt="Demon's Souls">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة رسمياً</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Demon's Souls</h3>
+                        <div class="game-info">
+                            <span>أكشن، لعب أدوار</span>
+                            <span>66 GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="load-more-official" class="btn view-all-btn">عرض المزيد</button>
+        </div>
+    </section>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-in-content">
+                <div class="ad-title">مساحة إعلانية</div>
+                <div class="ad-description">يمكن إضافة إعلانات ربحية هنا</div>
+                <div class="ad-close"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الألعاب المعربة غير رسمياً -->
+    <section class="games-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-container">
+                    <i class="fas fa-globe-africa section-icon"></i>
+                    <h2 class="section-title">ألعاب PS5 المعربة غير رسمياً</h2>
+                </div>
+            </div>
+            
+            <div class="games-grid" id="non-official-arabic-games">
+                <!-- ستتم إضافة بطاقات الألعاب هنا عن طريق JavaScript -->
+                <div class="game-card" data-external-image="https://example.com/images/games/elden-ring.jpg" data-alt="Elden Ring">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Elden Ring</h3>
+                        <div class="game-info">
+                            <span>أكشن، لعب أدوار، عالم مفتوح</span>
+                            <span>45 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/final-fantasy-16.jpg" data-alt="Final Fantasy XVI">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Final Fantasy XVI</h3>
+                        <div class="game-info">
+                            <span>لعب أدوار</span>
+                            <span>100 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/hogwarts-legacy.jpg" data-alt="Hogwarts Legacy">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Hogwarts Legacy</h3>
+                        <div class="game-info">
+                            <span>أكشن، لعب أدوار، عالم مفتوح</span>
+                            <span>85 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/resident-evil-village.jpg" data-alt="Resident Evil Village">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Resident Evil Village</h3>
+                        <div class="game-info">
+                            <span>رعب، أكشن</span>
+                            <span>28 GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="load-more-non-official" class="btn view-all-btn">عرض المزيد</button>
+        </div>
+    </section>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-horizontal-large">
+                <div class="ad-title">مساحة إعلانية</div>
+                <div class="ad-description">يمكن إضافة إعلانات ربحية هنا</div>
+                <div class="ad-close"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الألعاب غير المعربة -->
+    <section class="games-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-container">
+                    <i class="fas fa-gamepad section-icon"></i>
+                    <h2 class="section-title">ألعاب PS5 غير المعربة</h2>
+                </div>
+            </div>
+            
+            <div class="games-grid" id="non-arabic-games">
+                <!-- ستتم إضافة بطاقات الألعاب هنا عن طريق JavaScript -->
+                <div class="game-card" data-external-image="https://example.com/images/games/returnal.jpg" data-alt="Returnal">
+                    <div class="game-platform">PS5</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Returnal</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة، تصويب</span>
+                            <span>56 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/deathloop.jpg" data-alt="Deathloop">
+                    <div class="game-platform">PS5</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Deathloop</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة، تصويب</span>
+                            <span>30 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/ghostwire-tokyo.jpg" data-alt="Ghostwire: Tokyo">
+                    <div class="game-platform">PS5</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Ghostwire: Tokyo</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>20 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card" data-external-image="https://example.com/images/games/the-callisto-protocol.jpg" data-alt="The Callisto Protocol">
+                    <div class="game-platform">PS5</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">The Callisto Protocol</h3>
+                        <div class="game-info">
+                            <span>رعب، أكشن</span>
+                            <span>45 GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="load-more-non-arabic" class="btn view-all-btn">عرض المزيد</button>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-text"><span>4</span>GAMER</div>
+                    </div>
+                    <p class="footer-about">
+                        منصة متكاملة مخصصة لألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات الرسمية وغير الرسمية.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="themes.html">الثيمات</a></li>
+                        <li><a href="apps.html">التطبيقات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">الأقسام</h3>
+                    <ul class="footer-links">
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="https://t.me/C9_91" target="_blank">قناة التليجرام</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> قناة التليجرام</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/external-images.js"></script>
+    <script src="js/download-links.js"></script>
+    
+    <script>
+        // تهيئة تحميل الصور الخارجية
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة تحميل الصور الخارجية
+            const externalImages = document.querySelectorAll('[data-external-image]');
+            externalImages.forEach(imgContainer => {
+                loadExternalImage(imgContainer);
+            });
+            
+            // تهيئة أحداث النقر على بطاقات الألعاب
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // استخراج اسم اللعبة
+                    const gameTitle = this.querySelector('.game-title').textContent;
+                    // توجيه المستخدم إلى صفحة تفاصيل اللعبة
+                    window.location.href = `game-details.html?title=${encodeURIComponent(gameTitle)}&platform=ps5`;
+                });
+            });
+            
+            // تهيئة أزرار "عرض المزيد"
+            document.getElementById('load-more-official').addEventListener('click', function() {
+                loadMoreGames('official-arabic');
+            });
+            
+            document.getElementById('load-more-non-official').addEventListener('click', function() {
+                loadMoreGames('non-official-arabic');
+            });
+            
+            document.getElementById('load-more-non-arabic').addEventListener('click', function() {
+                loadMoreGames('non-arabic');
+            });
+            
+            // تهيئة فلاتر التصفية
+            document.getElementById('filter-apply').addEventListener('click', function() {
+                applyFilters();
+            });
+        });
+        
+        // دالة تحميل المزيد من الألعاب
+        function loadMoreGames(category) {
+            // هذه الدالة ستقوم بتحميل المزيد من الألعاب بناءً على الفئة
+            // في الإصدار النهائي، يمكن تحميل البيانات من ملف JSON أو API
+            console.log(`تحميل المزيد من الألعاب للفئة: ${category}`);
+            
+            // إظهار رسالة للمستخدم
+            alert('سيتم تحميل المزيد من الألعاب في الإصدار النهائي');
+        }
+        
+        // دالة تطبيق فلاتر التصفية
+        function applyFilters() {
+            const category = document.getElementById('category-filter').value;
+            const language = document.getElementById('language-filter').value;
+            const sort = document.getElementById('sort-filter').value;
+            
+            console.log(`تطبيق الفلاتر: التصنيف=${category}, اللغة=${language}, الترتيب=${sort}`);
+            
+            // إظهار رسالة للمستخدم
+            alert('سيتم تطبيق الفلاتر في الإصدار النهائي');
+        }
+    </script>
+</body>
+</html>

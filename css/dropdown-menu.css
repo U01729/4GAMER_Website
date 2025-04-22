@@ -1,0 +1,250 @@
+/* 
+ * 4GAMER Website - Advanced Dropdown Menu Styles
+ * أنماط القائمة المنسدلة المتقدمة لموقع 4GAMER
+ */
+
+/* القائمة المنسدلة الرئيسية */
+.dropdown-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: var(--dark-surface);
+  z-index: 2000;
+  padding: 20px 0;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.dropdown-menu.active {
+  transform: translateX(0);
+}
+
+/* رأس القائمة المنسدلة */
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 15px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 15px;
+}
+
+.dropdown-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.dropdown-close {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color var(--transition-speed) ease;
+}
+
+.dropdown-close:hover {
+  color: var(--primary-color);
+}
+
+/* عناصر القائمة المنسدلة */
+.dropdown-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-item {
+  border-bottom: 1px solid #333;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.dropdown-link:hover {
+  background-color: var(--dark-surface-2);
+}
+
+.dropdown-link.active {
+  background-color: var(--dark-surface-2);
+  color: var(--primary-color);
+}
+
+.dropdown-icon {
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+
+.dropdown-arrow {
+  transition: transform var(--transition-speed) ease;
+}
+
+.dropdown-arrow.active {
+  transform: rotate(180deg);
+}
+
+/* القوائم الفرعية */
+.dropdown-submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--dark-bg);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.dropdown-submenu.active {
+  max-height: 500px; /* قيمة كبيرة بما يكفي لاستيعاب جميع العناصر */
+}
+
+.dropdown-subitem {
+  border-bottom: 1px solid #222;
+}
+
+.dropdown-subitem:last-child {
+  border-bottom: none;
+}
+
+.dropdown-sublink {
+  display: block;
+  padding: 12px 20px 12px 40px;
+  color: var(--text-gray);
+  text-decoration: none;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.dropdown-sublink:hover {
+  background-color: var(--dark-surface);
+  color: var(--primary-color);
+}
+
+.dropdown-sublink.active {
+  color: var(--primary-color);
+}
+
+/* زر القائمة (الخطوط الثلاثة) */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed) ease;
+}
+
+.menu-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* خلفية معتمة عند فتح القائمة */
+.dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* رابط قناة التليجرام */
+.telegram-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  text-decoration: none;
+  margin: 20px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.telegram-link:hover {
+  background-color: var(--primary-dark);
+}
+
+.telegram-icon {
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+
+/* تعديلات للوضع المضيء */
+[data-theme="light"] .dropdown-menu {
+  background-color: var(--dark-surface);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .dropdown-header {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .dropdown-close {
+  color: var(--text-light);
+}
+
+[data-theme="light"] .dropdown-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .dropdown-link {
+  color: var(--text-light);
+}
+
+[data-theme="light"] .dropdown-link:hover {
+  background-color: var(--dark-surface-2);
+}
+
+[data-theme="light"] .dropdown-submenu {
+  background-color: #f1f5f9;
+}
+
+[data-theme="light"] .dropdown-subitem {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .dropdown-sublink {
+  color: var(--text-gray);
+}
+
+[data-theme="light"] .dropdown-sublink:hover {
+  background-color: #e2e8f0;
+}
+
+/* تعديلات للشاشات الصغيرة */
+@media (max-width: 576px) {
+  .dropdown-menu {
+    width: 280px;
+  }
+}

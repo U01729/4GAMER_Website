@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLDHEN لـ PS4 - 4GAMER</title>
+    <meta name="description" content="تحميل أحدث إصدار من GOLDHEN لجهاز PS4 مع شرح طريقة التثبيت والاستخدام">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/goldhen.css">
+    <link rel="stylesheet" href="css/ads.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة 4GAMER</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link active">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow active"></i>
+                </a>
+                <ul class="dropdown-submenu active">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink active">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- رأس الصفحة -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">GOLDHEN لـ PS4</h1>
+            <p class="page-subtitle">تحميل أحدث إصدار من GOLDHEN لجهاز PS4 مع شرح طريقة التثبيت والاستخدام</p>
+        </div>
+    </header>
+
+    <!-- قسم GOLDHEN -->
+    <section class="goldhen-section">
+        <div class="container">
+            <!-- رأس القسم -->
+            <div class="goldhen-header">
+                <div class="goldhen-logo" data-external-image="https://example.com/images/goldhen-logo.png" data-alt="GOLDHEN Logo"></div>
+                <h2 class="goldhen-title">GOLDHEN</h2>
+                <p class="goldhen-subtitle">
+                    GOLDHEN هو أحدث وأفضل حل للجيلبريك لأجهزة PS4. يوفر واجهة سهلة الاستخدام وميزات متقدمة لتشغيل التطبيقات والألعاب المعدلة على جهازك.
+                </p>
+            </div>
+            
+            <!-- قسم التنبيه -->
+            <div class="warning-box">
+                <div class="warning-title">
+                    <i class="fas fa-exclamation-triangle"></i> تنبيه هام
+                </div>
+                <p class="warning-text">
+                    استخدام GOLDHEN يكون على مسؤوليتك الخاصة. قد يؤدي الاستخدام غير الصحيح إلى مشاكل في الجهاز. تأكد من اتباع التعليمات بدقة واستخدام الإصدار المتوافق مع نظام جهازك.
+                </p>
+            </div>
+            
+            <!-- إصدارات GOLDHEN -->
+            <div class="goldhen-versions">
+                <!-- بطاقة الإصدار 2.6 -->
+                <div class="goldhen-card">
+                    <div class="goldhen-card-header">
+                        <h3 class="goldhen-version">GOLDHEN v2.6</h3>
+                        <div class="goldhen-firmware">متوافق مع PS4 10.50</div>
+                    </div>
+                    <div class="goldhen-card-body">
+                        <div class="goldhen-features">
+                            <h4 class="goldhen-features-title">الميزات الرئيسية:</h4>
+                            <ul class="goldhen-features-list">
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> دعم كامل لإصدار 10.50</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> تحسينات في الأداء والاستقرار</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> إصلاح مشاكل الذاكرة</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> دعم محسن للتطبيقات</li>
+                            </ul>
+                        </div>
+                        <div class="goldhen-meta">
+                            <div class="goldhen-meta-item"><i class="far fa-calendar-alt"></i> 10 أبريل 2025</div>
+                            <div class="goldhen-meta-item"><i class="fas fa-file-archive"></i> 1.2 MB</div>
+                        </div>
+                        <a href="https://akirabox.com/download/goldhen-2.6-ps4" class="goldhen-download-btn" target="_blank" data-version="2.6" data-platform="ps4">
+                            تحميل <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة الإصدار 2.5 -->
+                <div class="goldhen-card">
+                    <div class="goldhen-card-header">
+                        <h3 class="goldhen-version">GOLDHEN v2.5</h3>
+                        <div class="goldhen-firmware">متوافق مع PS4 9.60 - 10.00</div>
+                    </div>
+                    <div class="goldhen-card-body">
+                        <div class="goldhen-features">
+                            <h4 class="goldhen-features-title">الميزات الرئيسية:</h4>
+                            <ul class="goldhen-features-list">
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> دعم إصدارات 9.60 و 10.00</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> تحسينات في الاستقرار</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> إضافة ميزات جديدة</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> تحسين توافق التطبيقات</li>
+                            </ul>
+                        </div>
+                        <div class="goldhen-meta">
+                            <div class="goldhen-meta-item"><i class="far fa-calendar-alt"></i> 15 مارس 2025</div>
+                            <div class="goldhen-meta-item"><i class="fas fa-file-archive"></i> 1.1 MB</div>
+                        </div>
+                        <a href="https://akirabox.com/download/goldhen-2.5-ps4" class="goldhen-download-btn" target="_blank" data-version="2.5" data-platform="ps4">
+                            تحميل <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة الإصدار 2.4 -->
+                <div class="goldhen-card">
+                    <div class="goldhen-card-header">
+                        <h3 class="goldhen-version">GOLDHEN v2.4</h3>
+                        <div class="goldhen-firmware">متوافق مع PS4 9.00 - 9.50</div>
+                    </div>
+                    <div class="goldhen-card-body">
+                        <div class="goldhen-features">
+                            <h4 class="goldhen-features-title">الميزات الرئيسية:</h4>
+                            <ul class="goldhen-features-list">
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> دعم إصدارات 9.00 و 9.03 و 9.50</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> استقرار محسن</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> إصلاح مشاكل سابقة</li>
+                                <li class="goldhen-feature-item"><i class="fas fa-check"></i> أداء أفضل</li>
+                            </ul>
+                        </div>
+                        <div class="goldhen-meta">
+                            <div class="goldhen-meta-item"><i class="far fa-calendar-alt"></i> 20 فبراير 2025</div>
+                            <div class="goldhen-meta-item"><i class="fas fa-file-archive"></i> 1.0 MB</div>
+                        </div>
+                        <a href="https://akirabox.com/download/goldhen-2.4-ps4" class="goldhen-download-btn" target="_blank" data-version="2.4" data-platform="ps4">
+                            تحميل <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- مكان للإعلانات -->
+            <div class="ad-container">
+                <div class="ad-horizontal-large">
+                    <div class="ad-title">مساحة إعلانية</div>
+                    <div class="ad-description">يمكن إضافة إعلانات ربحية هنا</div>
+                    <div class="ad-close"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+            
+            <!-- قسم التثبيت -->
+            <section class="installation-section">
+                <h2 class="installation-title">طريقة التثبيت والاستخدام</h2>
+                
+                <div class="installation-steps">
+                    <!-- الخطوة 1 -->
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i class="fas fa-download"></i></div>
+                            <h3 class="step-title">تحميل الملفات</h3>
+                            <p class="step-description">
+                                قم بتحميل الإصدار المناسب لنظام جهازك من الروابط أعلاه. تأكد من اختيار الإصدار المتوافق مع إصدار نظام جهازك.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- الخطوة 2 -->
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i class="fas fa-usb-drive"></i></div>
+                            <h3 class="step-title">تجهيز USB</h3>
+                            <p class="step-description">
+                                قم بنسخ ملف GOLDHEN إلى محرك أقراص USB بتنسيق exFAT أو FAT32. ضع الملف في مجلد باسم "PS4" في الجذر.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- الخطوة 3 -->
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-icon"><i class="fas fa-play"></i></div>
+                            <h3 class="step-title">تشغيل GOLDHEN</h3>
+                            <p class="step-description">
+                                قم بتوصيل محرك USB بجهاز PS4، ثم انتقل إلى متصفح الإنترنت وادخل عنوان موقع الجيلبريك المناسب لإصدار جهازك.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-container" data-video-id="dQw4w9WgXcQ" style="margin-top: 40px;"></div>
+            </section>
+            
+            <!-- قسم الأسئلة الشائعة -->
+            <section class="faq-section">
+                <h2 class="faq-title">الأسئلة الشائعة</h2>
+                
+                <div class="faq-list">
+                    <!-- سؤال 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="faq-question-text">ما هو GOLDHEN؟</div>
+                            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                GOLDHEN هو برنامج جيلبريك لأجهزة PS4 يتيح تشغيل التطبيقات والألعاب المعدلة على الجهاز. يعتبر من أحدث وأفضل حلول الجيلبريك المتاحة حالياً.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- سؤال 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="faq-question-text">كيف أعرف الإصدار المناسب لجهازي؟</div>
+                            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                يمكنك معرفة إصدار نظام جهازك من خلال الذهاب إلى الإعدادات > النظام > معلومات النظام. ثم اختر الإصدار المناسب من GOLDHEN بناءً على إصدار نظام جهازك.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- سؤال 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="faq-question-text">هل استخدام GOLDHEN آمن؟</div>
+                            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                استخدام GOLDHEN يكون على مسؤوليتك الخاصة. قد يؤدي الاستخدام غير الصحيح إلى مشاكل في الجهاز. تأكد من اتباع التعليمات بدقة واستخدام الإصدار المتوافق مع نظام جهازك.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- سؤال 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="faq-question-text">هل يمكنني تحديث نظام جهازي بعد تثبيت GOLDHEN؟</div>
+                            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                لا ينصح بتحديث نظام الجهاز بعد تثبيت GOLDHEN، لأن التحديث قد يؤدي إلى فقدان الجيلبريك. انتظر دائماً حتى يتوفر إصدار من GOLDHEN متوافق مع التحديث الجديد قبل التحديث.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- سؤال 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <div class="faq-question-text">هل يجب تثبيت GOLDHEN في كل مرة أشغل فيها الجهاز؟</div>
+                            <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text">
+                                نعم، GOLDHEN هو جيلبريك مؤقت، مما يعني أنه يجب تثبيته في كل مرة تقوم فيها بتشغيل الجهاز أو إعادة تشغيله.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-text"><span>4</span>GAMER</div>
+                    </div>
+                    <p class="footer-about">
+                        منصة 4GAMER متخصصة في تعديل أجهزة PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="themes.html">الثيمات</a></li>
+                        <li><a href="apps.html">التطبيقات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">الأقسام</h3>
+                    <ul class="footer-links">
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="https://t.me/C9_91" target="_blank">قناة التليجرام</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> قناة التليجرام</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/external-images.js"></script>
+    <script src="js/tutorials.js"></script>
+    <script src="js/goldhen.js"></script>
+</body>
+</html>

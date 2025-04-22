@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروحات PS4 - 4GAMER</title>
+    <meta name="description" content="شروحات وفيديوهات تعليمية لجهاز PS4 وألعابه وتطبيقاته">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/tutorials.css">
+    <link rel="stylesheet" href="css/ads.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link active">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow active"></i>
+                </a>
+                <ul class="dropdown-submenu active">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink active">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- رأس الصفحة -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">شروحات PS4</h1>
+            <p class="page-subtitle">شروحات وفيديوهات تعليمية لجهاز PS4 وألعابه وتطبيقاته</p>
+        </div>
+    </header>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-horizontal-large">
+                <div class="ad-title">مساحة إعلانية</div>
+                <div class="ad-description">يمكن إضافة إعلانات ربحية هنا</div>
+                <div class="ad-close"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الشرح المميز -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="featured-tutorial">
+                <div class="video-container" data-video-id="dQw4w9WgXcQ"></div>
+                <div class="featured-tutorial-content">
+                    <div class="featured-tutorial-badge">شرح مميز</div>
+                    <h2 class="featured-tutorial-title">كيفية تثبيت وتشغيل GOLDHEN على PS4</h2>
+                    <div class="featured-tutorial-meta">
+                        <div class="tutorial-meta-item"><i class="far fa-calendar-alt"></i> 15 أبريل 2025</div>
+                        <div class="tutorial-meta-item"><i class="far fa-eye"></i> 15,420 مشاهدة</div>
+                        <div class="tutorial-meta-item"><i class="far fa-clock"></i> 12:45 دقيقة</div>
+                    </div>
+                    <p class="featured-tutorial-description">
+                        في هذا الشرح المفصل، نوضح كيفية تثبيت وتشغيل GOLDHEN على جهاز PS4 بكل سهولة. يشمل الشرح جميع الخطوات اللازمة من البداية وحتى النهاية، مع توضيح الإعدادات المطلوبة والمشاكل الشائعة وحلولها.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tutorial-tag">PS4</span>
+                        <span class="tutorial-tag">GOLDHEN</span>
+                        <span class="tutorial-tag">جيلبريك</span>
+                        <span class="tutorial-tag">تثبيت</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم أحدث الشروحات -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-container">
+                    <i class="fas fa-video section-icon"></i>
+                    <h2 class="section-title">أحدث الشروحات</h2>
+                </div>
+                <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <div class="tutorials-grid">
+                <!-- بطاقة شرح 1 -->
+                <div class="tutorial-card" data-video-id="dQw4w9WgXcQ">
+                    <div class="tutorial-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="كيفية تثبيت التحديثات على PS4">
+                        <div class="tutorial-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">كيفية تثبيت التحديثات على PS4</h3>
+                        <div class="tutorial-meta">
+                            <div class="tutorial-meta-item"><i class="far fa-calendar-alt"></i> 10 أبريل 2025</div>
+                            <div class="tutorial-meta-item"><i class="far fa-eye"></i> 8,320 مشاهدة</div>
+                        </div>
+                        <p class="tutorial-description">
+                            شرح مفصل لكيفية تثبيت التحديثات على جهاز PS4 بطريقة صحيحة وآمنة.
+                        </p>
+                        <div class="tutorial-tags">
+                            <span class="tutorial-tag">PS4</span>
+                            <span class="tutorial-tag">تحديثات</span>
+                            <span class="tutorial-tag">تثبيت</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- بطاقة شرح 2 -->
+                <div class="tutorial-card" data-video-id="dQw4w9WgXcQ">
+                    <div class="tutorial-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="كيفية نقل البيانات من PS4 إلى PS5">
+                        <div class="tutorial-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">كيفية نقل البيانات من PS4 إلى PS5</h3>
+                        <div class="tutorial-meta">
+                            <div class="tutorial-meta-item"><i class="far fa-calendar-alt"></i> 5 أبريل 2025</div>
+                            <div class="tutorial-meta-item"><i class="far fa-eye"></i> 12,150 مشاهدة</div>
+                        </div>
+                        <p class="tutorial-description">
+                            دليل شامل لنقل جميع بياناتك وألعابك من جهاز PS4 إلى جهاز PS5 الجديد.
+                        </p>
+                        <div class="tutorial-tags">
+                            <span class="tutorial-tag">PS4</span>
+                            <span class="tutorial-tag">PS5</span>
+                            <span class="tutorial-tag">نقل البيانات</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- بطاقة شرح 3 -->
+                <div class="tutorial-card" data-video-id="dQw4w9WgXcQ">
+                    <div class="tutorial-thumbnail">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="حل مشكلة ارتفاع صوت مروحة PS4">
+                        <div class="tutorial-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">حل مشكلة ارتفاع صوت مروحة PS4</h3>
+                        <div class="tutorial-meta">
+                            <div class="tutorial-meta-item"><i class="far fa-calendar-alt"></i> 1 أبريل 2025</div>
+                            <div class="tutorial-meta-item"><i class="far fa-eye"></i> 20,780 مشاهدة</div>
+                        </div>
+                        <p class="tutorial-description">
+                            شرح خطوات تنظيف وصيانة جهاز PS4 لحل مشكلة ارتفاع صوت المروحة وتحسين أداء الجهاز.
+                        </p>
+                        <div class="tutorial-tags">
+                            <span class="tutorial-tag">PS4</span>
+                            <span class="tutorial-tag">صيانة</span>
+                            <span class="tutorial-tag">تنظيف</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-container">
+            <div class="ad-in-content">
+                <div class="ad-title">مساحة إعلانية</div>
+                <div class="ad-description">يمكن إضافة إعلانات ربحية هنا</div>
+                <div class="ad-close"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم أخبار PS4 -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-title-container">
+                    <i class="fas fa-newspaper section-icon"></i>
+                    <h2 class="section-title">أخبار PS4</h2>
+                </div>
+                <a href="news.html" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <div class="tutorials-grid">
+                <!-- بطاقة خبر 1 -->
+                <div class="news-card" data-news-id="1">
+                    <div class="news-img-container" data-external-image="https://example.com/images/news/ps4-update.jpg" data-alt="تحديث جديد لنظام PS4"></div>
+                    <div class="news-content">
+                        <h3 class="news-title">تحديث جديد لنظام PS4 يضيف ميزات أمان جديدة</h3>
+                        <div class="news-meta">
+                            <div class="news-meta-item"><i class="far fa-calendar-alt"></i> 12 أبريل 2025</div>
+                            <div class="news-meta-item"><i class="far fa-user"></i> فريق 4GAMER</div>
+                        </div>
+                        <p class="news-description">
+                            أطلقت شركة سوني تحديثاً جديداً لنظام PS4 يحمل رقم 10.50 يضيف ميزات أمان جديدة ويحسن أداء النظام.
+                        </p>
+                        <a href="news-details.html?id=1" class="news-read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خبر 2 -->
+                <div class="news-card" data-news-id="2">
+                    <div class="news-img-container" data-external-image="https://example.com/images/news/ps4-games.jpg" data-alt="ألعاب PS4 جديدة"></div>
+                    <div class="news-content">
+                        <h3 class="news-title">قائمة بأفضل 10 ألعاب PS4 لعام 2025</h3>
+                        <div class="news-meta">
+                            <div class="news-meta-item"><i class="far fa-calendar-alt"></i> 8 أبريل 2025</div>
+                            <div class="news-meta-item"><i class="far fa-user"></i> فريق 4GAMER</div>
+                        </div>
+                        <p class="news-description">
+                            استعرضنا لكم أفضل 10 ألعاب PS4 صدرت في النصف الأول من عام 2025، مع تقييم كل لعبة ومميزاتها.
+                        </p>
+                        <a href="news-details.html?id=2" class="news-read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <!-- بطاقة خبر 3 -->
+                <div class="news-card" data-news-id="3">
+                    <div class="news-img-container" data-external-image="https://example.com/images/news/ps4-goldhen.jpg" data-alt="GOLDHEN لـ PS4"></div>
+                    <div class="news-content">
+                        <h3 class="news-title">إصدار جديد من GOLDHEN لـ PS4 يدعم الإصدار 10.50</h3>
+                        <div class="news-meta">
+                            <div class="news-meta-item"><i class="far fa-calendar-alt"></i> 5 أبريل 2025</div>
+                            <div class="news-meta-item"><i class="far fa-user"></i> فريق 4GAMER</div>
+                        </div>
+                        <p class="news-description">
+                            تم إطلاق إصدار جديد من GOLDHEN لـ PS4 يدعم الإصدار 10.50 من نظام التشغيل، مع إصلاح العديد من المشاكل.
+                        </p>
+                        <a href="news-details.html?id=3" class="news-read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-text"><span>4</span>GAMER</div>
+                    </div>
+                    <p class="footer-about">
+                        منصة متكاملة مخصصة لألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="themes.html">الثيمات</a></li>
+                        <li><a href="apps.html">التطبيقات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">الأقسام</h3>
+                    <ul class="footer-links">
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="https://t.me/C9_91" target="_blank">قناة التليجرام</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> قناة التليجرام</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/external-images.js"></script>
+    <script src="js/tutorials.js"></script>
+    
+    <script>
+        // تهيئة تحميل الصور الخارجية
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة الفيديوهات من يوتيوب
+            initYoutubeVideos();
+            
+            // تهيئة تحميل الصور الخارجية
+            const externalImages = document.querySelectorAll('[data-external-image]');
+            externalImages.forEach(imgContainer => {
+                loadExternalImage(imgContainer);
+            });
+        });
+    </script>
+</body>
+</html>

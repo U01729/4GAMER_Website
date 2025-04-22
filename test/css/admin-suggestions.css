@@ -1,0 +1,683 @@
+/* 
+ * 4GAMER Website - تنسيقات صفحة إدارة الاقتراحات
+ */
+
+/* تنسيقات عامة للوحة الإدارة */
+.admin-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* تنسيقات بطاقات الإحصائيات */
+.admin-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.admin-stat-card {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+    color: var(--dark-bg);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-title {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+/* تنسيقات قسم التصفية */
+.admin-filter-section {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-filter-header {
+    margin-bottom: 15px;
+}
+
+.admin-section-title {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.admin-filter-group {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-filter-group label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.admin-filter-select,
+.admin-filter-input {
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--dark-surface-2);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.admin-filter-select:focus,
+.admin-filter-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+}
+
+.admin-filter-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.apply-filter-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    color: var(--dark-bg);
+    font-weight: 600;
+}
+
+.reset-filter-btn {
+    background-color: transparent;
+    border: 1px solid var(--text-gray);
+    color: var(--text-gray);
+}
+
+/* تنسيقات قسم قائمة الاقتراحات */
+.admin-suggestions-section {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-section-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-selected-btn {
+    background-color: var(--danger-color);
+    color: var(--text-light);
+}
+
+.delete-selected-btn:disabled {
+    background-color: var(--dark-surface-2);
+    color: var(--text-gray);
+    cursor: not-allowed;
+}
+
+/* تنسيقات جدول الاقتراحات */
+.admin-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid var(--dark-surface-2);
+}
+
+.admin-table th {
+    background-color: var(--dark-surface-2);
+    color: var(--text-light);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.admin-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.admin-table tbody tr:hover {
+    background-color: var(--dark-surface-2);
+}
+
+.checkbox-cell {
+    width: 40px;
+    text-align: center;
+}
+
+.title-cell {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.actions-cell {
+    width: 100px;
+    text-align: center;
+}
+
+.admin-action-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1rem;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-action-btn:hover {
+    color: var(--text-light);
+}
+
+.admin-action-btn.view-btn:hover {
+    color: var(--primary-color);
+}
+
+.admin-action-btn.delete-btn:hover {
+    color: var(--danger-color);
+}
+
+/* تنسيقات شارات الحالة */
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-new {
+    background-color: rgba(74, 222, 128, 0.2);
+    color: var(--primary-color);
+}
+
+.status-in-progress {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.status-approved {
+    background-color: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+}
+
+.status-rejected {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.status-implemented {
+    background-color: rgba(234, 179, 8, 0.2);
+    color: #eab308;
+}
+
+/* تنسيقات ترقيم الصفحات */
+.admin-table-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    background-color: var(--dark-surface-2);
+    color: var(--text-gray);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: var(--dark-surface);
+    color: var(--text-light);
+}
+
+.pagination-btn.active {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.pagination-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* تنسيقات رسالة "لا توجد اقتراحات" */
+.admin-table-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    color: var(--text-gray);
+    margin-bottom: 15px;
+}
+
+.admin-table-empty h3 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.admin-table-empty p {
+    color: var(--text-gray);
+    max-width: 400px;
+}
+
+/* تنسيقات النافذة المنبثقة */
+.admin-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.admin-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.admin-modal-content {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.admin-modal.show .admin-modal-content {
+    transform: translateY(0);
+}
+
+.admin-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--dark-surface-2);
+}
+
+.admin-modal-title {
+    font-size: 1.3rem;
+    color: var(--text-light);
+}
+
+.admin-modal-close {
+    background-color: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-modal-close:hover {
+    color: var(--text-light);
+}
+
+.admin-modal-body {
+    padding: 20px;
+}
+
+.admin-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid var(--dark-surface-2);
+}
+
+/* تنسيقات تفاصيل الاقتراح */
+.suggestion-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.suggestion-details-header {
+    margin-bottom: 10px;
+}
+
+.suggestion-details-header h3 {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.suggestion-details-meta {
+    display: flex;
+    gap: 15px;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.suggestion-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.suggestion-type::before {
+    content: '\f11b';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.suggestion-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.suggestion-date::before {
+    content: '\f017';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.suggestion-details-description h4,
+.suggestion-details-contact h4,
+.suggestion-details-status h4,
+.suggestion-details-notes h4 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.suggestion-details-description h4::before {
+    content: '\f15c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.suggestion-details-contact h4::before {
+    content: '\f0e0';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.suggestion-details-status h4::before {
+    content: '\f05a';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.suggestion-details-notes h4::before {
+    content: '\f249';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+.suggestion-details-description p,
+.suggestion-details-contact p {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.status-selector {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-select {
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--dark-surface-2);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+.admin-textarea {
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--dark-surface-2);
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.95rem;
+    resize: vertical;
+    min-height: 100px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.admin-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+}
+
+.update-status-btn,
+.save-notes-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    color: var(--dark-bg);
+    font-weight: 600;
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: var(--text-light);
+}
+
+.close-btn {
+    background-color: var(--dark-surface-2);
+    color: var(--text-light);
+}
+
+/* تنسيقات الإشعارات */
+.admin-notification-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+}
+
+.admin-notification {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.admin-notification-hide {
+    animation: slideOut 0.3s ease forwards;
+}
+
+.admin-notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-notification-icon {
+    font-size: 1.2rem;
+}
+
+.admin-notification-success .admin-notification-icon {
+    color: var(--primary-color);
+}
+
+.admin-notification-error .admin-notification-icon {
+    color: var(--danger-color);
+}
+
+.admin-notification-info .admin-notification-icon {
+    color: #3b82f6;
+}
+
+.admin-notification-close {
+    background-color: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-notification-close:hover {
+    color: var(--text-light);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* تحسينات للأجهزة المحمولة */
+@media (max-width: 992px) {
+    .admin-stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-filter-row {
+        flex-direction: column;
+    }
+    
+    .admin-filter-group {
+        width: 100%;
+    }
+    
+    .admin-filter-actions {
+        flex-direction: column;
+    }
+    
+    .status-selector {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

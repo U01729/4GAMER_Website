@@ -1,0 +1,189 @@
+/* 
+ * 4GAMER Website - Search Functionality Styles
+ * أنماط وظيفة البحث لموقع 4GAMER
+ */
+
+.search-container {
+  position: relative;
+  margin-right: 20px;
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  background-color: var(--dark-surface-2);
+  border: 1px solid #444;
+  border-radius: var(--border-radius);
+  color: var(--text-light);
+  font-family: inherit;
+  transition: all var(--transition-speed) ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--dark-surface);
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-gray);
+  font-size: 16px;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--dark-surface);
+  border: 1px solid #444;
+  border-top: none;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.search-results.active {
+  display: block;
+}
+
+.search-result-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: var(--dark-surface-2);
+}
+
+.search-result-title {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--text-light);
+}
+
+.search-result-category {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+}
+
+.search-result-description {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  margin-top: 5px;
+}
+
+.search-highlight {
+  background-color: rgba(74, 222, 128, 0.2);
+  color: var(--primary-light);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.search-no-results {
+  padding: 15px;
+  text-align: center;
+  color: var(--text-gray);
+}
+
+.search-loading {
+  padding: 15px;
+  text-align: center;
+  color: var(--text-gray);
+}
+
+.search-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 0 15px 15px;
+}
+
+.search-category {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  background-color: var(--dark-surface-2);
+  border-radius: 20px;
+  color: var(--text-gray);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.search-category:hover, .search-category.active {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+/* تخصيص شريط التمرير للنتائج */
+.search-results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: var(--dark-surface-2);
+  border-radius: 0 0 var(--border-radius) 0;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* تعديلات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .search-input {
+    padding: 8px 15px 8px 35px;
+  }
+  
+  .search-icon {
+    left: 10px;
+  }
+}
+
+/* تعديلات للشاشات المتوسطة */
+@media (min-width: 769px) and (max-width: 992px) {
+  .search-container {
+    width: 250px;
+  }
+}
+
+/* تأثيرات الحركة */
+@keyframes searchFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-results.active {
+  animation: searchFadeIn 0.3s ease forwards;
+}

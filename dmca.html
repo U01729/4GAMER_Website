@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة DMCA - 4GAMER</title>
+    <meta name="description" content="سياسة حقوق الملكية الفكرية وقانون الألفية الرقمية لحقوق الطبع والنشر (DMCA) لموقع 4GAMER">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة DMCA */
+        .dmca-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .dmca-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dmca-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-header {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-body {
+            padding: 25px;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        .feature-list, .warning-list {
+            padding-right: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-list li, .warning-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .feature-list i {
+            color: var(--success-color, #28a745);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .warning-list i {
+            color: var(--warning-color, #ffc107);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .alert {
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+        
+        .alert-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .contact-box {
+            background-color: rgba(var(--primary-color-rgb), 0.05);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .email-box {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin: 10px 0;
+        }
+        
+        .subsection-title {
+            color: var(--heading-color);
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+            border-right: 4px solid var(--primary-color);
+            padding-right: 15px;
+        }
+        
+        .numbered-list {
+            padding-right: 25px;
+            margin: 20px 0;
+        }
+        
+        .numbered-list li {
+            margin-bottom: 12px;
+        }
+        
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .commitment-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgba(var(--primary-color-rgb), 0.05);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+        
+        .commitment-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .commitment-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .commitment-text {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .card-title {
+                font-size: 1.3rem;
+            }
+            
+            .commitment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item active">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            <section class="page-section">
+                <div class="section-header">
+                    <h1 class="section-title">سياسة حقوق الملكية الفكرية وقانون DMCA</h1>
+                    <div class="section-subtitle">التزامنا بحماية حقوق الملكية الفكرية</div>
+                </div>
+                
+                <div class="dmca-content">
+                    <div class="card dmca-card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-shield-alt"></i> إخلاء المسؤولية القانوني</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>جميع الألعاب المتوفرة على موقع 4GAMER هي نسخ تجريبية (مُعدّة ومُشاركة مجانًا من قِبل مُحبي الألعاب)، وليست إصدارات رسمية من مُطوّري الألعاب الأصليين. نحن نؤمن بشدة بدعم صناعة الألعاب ومطوريها، لذا نحث جميع زوارنا على شراء الألعاب الأصلية من المصادر الرسمية للحصول على أفضل تجربة لعب ممكنة ودعم المطورين الذين يعملون بجد لتقديم هذه التجارب الرائعة.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card dmca-card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-bullseye"></i> الغرض من المحتوى</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>جميع الألعاب المتوفرة على موقع 4GAMER هي "لأغراض الاختبار فقط". الهدف الأساسي من توفير هذه النسخ هو:</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> تمكين اللاعبين من تجربة اللعبة واكتشاف الأخطاء البرمجية التي قد تساعد مطوري الألعاب في تحسين منتجاتهم.</li>
+                                <li><i class="fas fa-check-circle"></i> مساعدة اللاعبين على تقييم الألعاب قبل اتخاذ قرار الشراء، خاصة في ظل ارتفاع أسعار الألعاب الحديثة.</li>
+                                <li><i class="fas fa-check-circle"></i> الحفاظ على تراث الألعاب القديمة التي لم تعد متوفرة للشراء بشكل رسمي.</li>
+                                <li><i class="fas fa-check-circle"></i> دعم مجتمع اللاعبين الذين قد لا تتوفر لديهم الإمكانيات المادية لشراء جميع الألعاب التي يرغبون في تجربتها.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card dmca-card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> تحذير هام</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>جميع الألعاب على هذا الموقع قابلة للاختبار فقط إذا قمتَ بكسر حماية جهاز الألعاب طواعيةً. نحن نحثك على التفكير مليًا قبل اتخاذ هذا القرار، حيث أن:</p>
+                            <div class="alert alert-warning">
+                                <ul class="warning-list">
+                                    <li><i class="fas fa-exclamation-circle"></i> كسر حماية الجهاز قد يؤدي إلى إلغاء الضمان الخاص به.</li>
+                                    <li><i class="fas fa-exclamation-circle"></i> قد يؤدي إلى حظر جهازك من الخدمات عبر الإنترنت.</li>
+                                    <li><i class="fas fa-exclamation-circle"></i> قد يتسبب في مشاكل تقنية إذا لم يتم تنفيذه بشكل صحيح.</li>
+                                    <li><i class="fas fa-exclamation-circle"></i> قد يكون مخالفاً للقوانين في بعض البلدان.</li>
+                                </ul>
+                            </div>
+                            <p>موقع 4GAMER يقدم المعلومات لأغراض تعليمية فقط ولا يتحمل أي مسؤولية عن أي ضرر قد ينتج عن استخدام هذه المعلومات.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card dmca-card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-copyright"></i> سياسة DMCA</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>موقع 4GAMER ملتزم تماماً بقانون الألفية الرقمية لحقوق الطبع والنشر (DMCA) ويحترم حقوق الملكية الفكرية للآخرين. نحن نسعى جاهدين للتأكد من أن جميع المحتويات المنشورة على موقعنا لا تنتهك حقوق الطبع والنشر لأي طرف ثالث.</p>
+                            
+                            <div class="contact-box">
+                                <p>إذا كنت تعتقد أن أي محتوى منشور على موقعنا ينتهك حقوق الطبع والنشر الخاصة بك، يرجى إرسال إشعار DMCA رسمي إلى عنوان البريد الإلكتروني:</p>
+                                <div class="email-box">
+                                    <i class="fas fa-envelope"></i> <strong>4gamer.contact@gmail.com</strong>
+                                </div>
+                            </div>
+                            
+                            <h3 class="subsection-title">متطلبات إشعار DMCA</h3>
+                            <p>يجب أن يتضمن إشعار DMCA الخاص بك المعلومات التالية:</p>
+                            <ol class="numbered-list">
+                                <li>توقيع إلكتروني أو مادي للشخص المفوض بالتصرف نيابة عن مالك حقوق الطبع والنشر.</li>
+                                <li>تحديد العمل المحمي بحقوق الطبع والنشر الذي تدعي انتهاكه.</li>
+                                <li>تحديد المحتوى الذي تدعي أنه ينتهك حقوق الطبع والنشر الخاصة بك، مع توفير معلومات كافية لتمكيننا من تحديد موقعه (مثل URL).</li>
+                                <li>معلومات الاتصال الخاصة بك، بما في ذلك عنوان البريد الإلكتروني ورقم الهاتف والعنوان.</li>
+                                <li>بيان منك يفيد بأنك تعتقد بحسن نية أن استخدام المواد بالطريقة المشكو منها غير مصرح به من قبل مالك حقوق الطبع والنشر أو وكيله أو القانون.</li>
+                                <li>بيان، تحت طائلة عقوبة الحنث باليمين، بأن المعلومات الواردة في إشعارك دقيقة وأنك مالك حقوق الطبع والنشر أو مفوض بالتصرف نيابة عن مالك حقوق الطبع والنشر.</li>
+                            </ol>
+                            
+                            <h3 class="subsection-title">إجراءاتنا عند استلام إشعار DMCA</h3>
+                            <p>عند استلام إشعار DMCA صحيح، سنتخذ الإجراءات التالية:</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> إزالة المحتوى المخالف في أقرب وقت ممكن.</li>
+                                <li><i class="fas fa-check-circle"></i> إبلاغ الطرف الذي قام بنشر المحتوى بالإزالة وسبب ذلك.</li>
+                                <li><i class="fas fa-check-circle"></i> توفير فرصة لتقديم إشعار مضاد إذا كان يعتقد أن المحتوى لا ينتهك حقوق الطبع والنشر.</li>
+                            </ul>
+                            
+                            <p>نحن نأخذ انتهاكات حقوق الطبع والنشر على محمل الجد ونسعى للتعاون الكامل مع أصحاب الحقوق لحماية ملكيتهم الفكرية.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card dmca-card">
+                        <div class="card-header">
+                            <h2 class="card-title"><i class="fas fa-handshake"></i> التزامنا تجاه المجتمع</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>في 4GAMER، نؤمن بأهمية دعم صناعة الألعاب وتشجيع الإبداع والابتكار. نحن نشجع جميع زوارنا على:</p>
+                            <div class="commitment-grid">
+                                <div class="commitment-item">
+                                    <div class="commitment-icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="commitment-text">
+                                        شراء الألعاب الأصلية عندما تكون لديهم القدرة المادية على ذلك
+                                    </div>
+                                </div>
+                                <div class="commitment-item">
+                                    <div class="commitment-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="commitment-text">
+                                        دعم المطورين المستقلين والشركات الصغيرة
+                                    </div>
+                                </div>
+                                <div class="commitment-item">
+                                    <div class="commitment-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="commitment-text">
+                                        تقديم تعليقات بناءة للمطورين لتحسين منتجاتهم
+                                    </div>
+                                </div>
+                                <div class="commitment-item">
+                                    <div class="commitment-icon">
+                                        <i class="fas fa-share-alt"></i>
+                                    </div>
+                                    <div class="commitment-text">
+                                        مشاركة تجاربهم الإيجابية مع الألعاب التي أعجبتهم
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p>نحن نعتقد أن هذا النهج المتوازن يساعد في الحفاظ على صناعة الألعاب مزدهرة ومبتكرة، مع توفير فرص للاعبين لاستكشاف عناوين جديدة قبل الاستثمار فيها.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3 class="footer-title">عن 4GAMER</h3>
+                    <p>منصة عربية متخصصة في ألعاب PlayStation بمختلف إصداراتها مع تركيز خاص على الألعاب المعربة.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/C9_91" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section links">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="dmca.html">سياسة DMCA</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: <a href="mailto:4gamer.contact@gmail.com">4gamer.contact@gmail.com</a></p>
+                    <p><i class="fab fa-telegram"></i> تيليجرام: <a href="https://t.me/C9_91" target="_blank">@C9_91</a></p>
+                    <a href="contact.html" class="contact-btn">راسلنا الآن</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 - 2025 4GAMER. جميع الحقوق محفوظة.</p>
+                <p class="disclaimer">PlayStation هي علامة تجارية مسجلة لشركة Sony Interactive Entertainment Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+</body>
+</html>

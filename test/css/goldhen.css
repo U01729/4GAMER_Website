@@ -1,0 +1,376 @@
+/* 
+ * 4GAMER Website - GOLDHEN Download Section Styles
+ * أنماط قسم تحميل GOLDHEN لموقع 4GAMER
+ */
+
+/* حاوية قسم GOLDHEN */
+.goldhen-section {
+  padding: 60px 0;
+}
+
+/* رأس القسم */
+.goldhen-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.goldhen-logo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  background-color: var(--dark-surface-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.goldhen-logo img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.goldhen-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.goldhen-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* بطاقات إصدارات GOLDHEN */
+.goldhen-versions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.goldhen-card {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.goldhen-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.goldhen-card-header {
+  background-color: var(--primary-color);
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.goldhen-version {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-bg);
+  margin: 0;
+}
+
+.goldhen-firmware {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 5px;
+}
+
+.goldhen-card-body {
+  padding: 20px;
+}
+
+.goldhen-features {
+  margin-bottom: 20px;
+}
+
+.goldhen-features-title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+.goldhen-features-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goldhen-feature-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.goldhen-feature-item i {
+  color: var(--primary-color);
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.goldhen-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+}
+
+.goldhen-meta-item {
+  display: flex;
+  align-items: center;
+}
+
+.goldhen-meta-item i {
+  margin-left: 5px;
+  color: var(--primary-color);
+}
+
+.goldhen-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: all var(--transition-speed) ease;
+}
+
+.goldhen-download-btn:hover {
+  background-color: var(--primary-light);
+}
+
+/* قسم التثبيت */
+.installation-section {
+  margin-top: 50px;
+}
+
+.installation-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.installation-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.step-card {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed) ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: -20px auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-content {
+  padding: 30px 20px 20px;
+  text-align: center;
+}
+
+.step-title {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.step-description {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+.step-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+/* قسم الأسئلة الشائعة */
+.faq-section {
+  margin-top: 50px;
+}
+
+.faq-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.faq-question:hover {
+  background-color: var(--dark-surface);
+}
+
+.faq-question-text {
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.faq-toggle {
+  color: var(--primary-color);
+  transition: transform var(--transition-speed) ease;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed) ease, padding var(--transition-speed) ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 20px 20px;
+  max-height: 500px;
+}
+
+.faq-answer-text {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* قسم التنبيه */
+.warning-box {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-right: 4px solid #e74c3c;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin: 50px 0;
+}
+
+.warning-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.warning-title i {
+  margin-left: 10px;
+}
+
+.warning-text {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* تعديلات للشاشات المختلفة */
+@media (max-width: 1200px) {
+  .goldhen-versions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .installation-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .goldhen-versions {
+    grid-template-columns: 1fr;
+  }
+  
+  .installation-steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .goldhen-title {
+    font-size: 2rem;
+  }
+  
+  .goldhen-logo {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* تعديلات للوضع المضيء */
+[data-theme="light"] .goldhen-card,
+[data-theme="light"] .step-card,
+[data-theme="light"] .faq-item {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .goldhen-logo {
+  background-color: #f8fafc;
+}
+
+[data-theme="light"] .faq-question:hover {
+  background-color: #f1f5f9;
+}
+
+[data-theme="light"] .warning-box {
+  background-color: rgba(231, 76, 60, 0.05);
+}

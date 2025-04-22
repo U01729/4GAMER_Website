@@ -1,0 +1,209 @@
+/* 
+ * 4GAMER Website - Advertisement Styles
+ * أنماط الإعلانات لموقع 4GAMER
+ */
+
+/* حاويات الإعلانات */
+.ad-container {
+  width: 100%;
+  margin: 30px 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  position: relative;
+}
+
+/* إعلان أفقي كبير */
+.ad-horizontal-large {
+  height: 90px;
+  background-color: var(--dark-surface-2);
+  border: 2px dashed #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+}
+
+/* إعلان أفقي صغير */
+.ad-horizontal-small {
+  height: 60px;
+  background-color: var(--dark-surface-2);
+  border: 2px dashed #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
+  text-align: center;
+}
+
+/* إعلان عمودي */
+.ad-vertical {
+  width: 300px;
+  height: 600px;
+  background-color: var(--dark-surface-2);
+  border: 2px dashed #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* إعلان مربع */
+.ad-square {
+  width: 300px;
+  height: 250px;
+  background-color: var(--dark-surface-2);
+  border: 2px dashed #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* إعلان بين المحتوى */
+.ad-in-content {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: var(--dark-surface-2);
+  border: 2px dashed #444;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/* عنوان الإعلان */
+.ad-title {
+  font-size: 1rem;
+  color: var(--text-gray);
+  margin-bottom: 5px;
+}
+
+/* وصف الإعلان */
+.ad-description {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+}
+
+/* شريط إعلاني ثابت في الأسفل */
+.ad-sticky-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--dark-surface);
+  border-top: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* زر إغلاق الإعلان */
+.ad-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.ad-close:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* إعلان منبثق */
+.ad-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 90%;
+  background-color: var(--dark-surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  padding: 20px;
+  text-align: center;
+  display: none;
+}
+
+.ad-popup.active {
+  display: block;
+}
+
+/* خلفية معتمة للإعلان المنبثق */
+.ad-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1999;
+  display: none;
+}
+
+.ad-popup-backdrop.active {
+  display: block;
+}
+
+/* إعلان في الشريط الجانبي */
+.ad-sidebar {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* تعديلات للوضع المضيء */
+[data-theme="light"] .ad-horizontal-large,
+[data-theme="light"] .ad-horizontal-small,
+[data-theme="light"] .ad-vertical,
+[data-theme="light"] .ad-square,
+[data-theme="light"] .ad-in-content {
+  background-color: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+}
+
+[data-theme="light"] .ad-sticky-bottom {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .ad-popup {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* تعديلات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .ad-vertical {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .ad-square {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .ad-popup {
+    width: 90%;
+  }
+}

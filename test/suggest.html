@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اقترح لعبة أو أداة - 4GAMER</title>
+    <meta name="description" content="اقترح لعبة أو أداة لإضافتها إلى موقع 4GAMER">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة الاقتراحات */
+        .suggest-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .suggest-section {
+            margin-bottom: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .suggest-section h2 {
+            color: var(--heading-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .suggest-section p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .suggest-form {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 0;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .form-actions .submit-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        .form-actions .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .form-actions .reset-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-actions .reset-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .highlight-box {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border-right: 3px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+        
+        .rules-list {
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+        
+        .rules-list li {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .accepted-suggestions {
+            margin-top: 40px;
+        }
+        
+        .suggestion-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border-right: 3px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .suggestion-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .suggestion-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            margin: 0;
+        }
+        
+        .suggestion-type {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .suggestion-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .suggestion-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .suggestion-description {
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .suggestion-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .status-pending {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+        
+        .status-approved {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+        
+        .status-rejected {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .status-implemented {
+            background-color: rgba(23, 162, 184, 0.1);
+            color: #17a2b8;
+        }
+        
+        .no-suggestions {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        
+        /* تنسيقات متجاوبة */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .form-row .form-group {
+                width: 100%;
+            }
+            
+            .suggestion-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">محسن الأداء لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">محسن الأداء لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="system-enhancements.html" class="dropdown-link">
+                    <span><i class="fas fa-rocket dropdown-icon"></i> تحسينات النظام</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-system-enhancements.html" class="dropdown-sublink">شروحات تحسينات النظام</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item highlight-item">
+                <a href="suggest.html" class="dropdown-link active">
+                    <span><i class="fas fa-lightbulb dropdown-icon"></i> اقترح لعبة أو أداة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            <section class="page-section">
+                <div class="section-header">
+                    <h1 class="section-title">اقترح لعبة أو أداة</h1>
+                    <div class="section-subtitle">ساعدنا في تطوير الموقع باقتراح ألعاب أو أدوات جديدة</div>
+                </div>
+                
+                <div class="suggest-container">
+                    <div class="suggest-section">
+                        <h2>قواعد وإرشادات الاقتراحات</h2>
+                        <p>نرحب باقتراحاتكم لإضافة ألعاب أو أدوات جديدة إلى موقع 4GAMER. لضمان معالجة اقتراحك بسرعة وفعالية، يرجى الالتزام بالقواعد والإرشادات التالية:</p>
+                        
+                        <ul class="rules-list">
+                            <li><strong>تحقق من عدم وجود اللعبة أو الأداة مسبقاً:</strong> قبل تقديم اقتراحك، يرجى البحث في الموقع للتأكد من أن اللعبة أو الأداة غير موجودة بالفعل.</li>
+                            <li><strong>قدم معلومات كاملة ودقيقة:</strong> كلما قدمت معلومات أكثر تفصيلاً، كان من الأسهل علينا تقييم اقتراحك وتنفيذه.</li>
+                            <li><strong>تجنب الاقتراحات المكررة:</strong> إذا تم اقتراح نفس اللعبة أو الأداة من قبل، فلن يتم النظر في الاقتراحات المكررة.</li>
+                            <li><strong>احترم حقوق الملكية الفكرية:</strong> لا نقبل اقتراحات للمحتوى الذي ينتهك حقوق النشر أو الملكية الفكرية.</li>
+                            <li><strong>كن صبوراً:</strong> تتم مراجعة جميع الاقتراحات، ولكن قد يستغرق ذلك بعض الوقت اعتماداً على حجم الاقتراحات المقدمة.</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <p>ملاحظة: يتم تقييم جميع الاقتراحات من قبل فريق الموقع، ونحتفظ بالحق في قبول أو رفض أي اقتراح وفقاً لمعاييرنا وسياساتنا.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="suggest-form">
+                        <h2>نموذج الاقتراح</h2>
+                        <form id="suggestion-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="suggestion-type">نوع الاقتراح *</label>
+                                    <select id="suggestion-type" name="type" required>
+                                        <option value="">اختر نوع الاقتراح</option>
+                                        <option value="game">لعبة</option>
+                                        <option value="theme">ثيم</option>
+                                        <option value="app">تطبيق</option>
+                                        <option value="tool">أداة</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="suggestion-platform">المنصة *</label>
+                                    <select id="suggestion-platform" name="platform" required>
+                                        <option value="">اختر المنصة</option>
+                                        <option value="ps4">PS4</option>
+                                        <option value="ps5">PS5</option>
+                                        <option value="both">PS4 و PS5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="suggestion-title">عنوان اللعبة أو الأداة *</label>
+                                <input type="text" id="suggestion-title" name="title" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="suggestion-description">وصف اللعبة أو الأداة *</label>
+                                <textarea id="suggestion-description" name="description" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="suggestion-link">رابط اللعبة أو الأداة (اختياري)</label>
+                                <input type="url" id="suggestion-link" name="link" placeholder="https://example.com">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="suggestion-name">اسمك *</label>
+                                    <input type="text" id="suggestion-name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="suggestion-email">البريد الإلكتروني *</label>
+                                    <input type="email" id="suggestion-email" name="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="suggestion-notes">ملاحظات إضافية (اختياري)</label>
+                                <textarea id="suggestion-notes" name="notes"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="reset" class="reset-btn">إعادة تعيين</button>
+                                <button type="submit" class="submit-btn">إرسال الاقتراح</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="accepted-suggestions">
+                        <h2>الاقتراحات المقبولة مؤخراً</h2>
+                        <div id="suggestions-list">
+                            <!-- سيتم ملء هذا القسم ديناميكياً بالاقتراحات المقبولة -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <div class="footer-logo-text">4GAMER</div>
+                    <div class="footer-tagline">منصة PlayStation العربية الأولى</div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">روابط سريعة</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                            <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                            <li><a href="news.html">الأخبار</a></li>
+                            <li><a href="tutorials-ps4.html">الشروحات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">الدعم</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="dmca.html">سياسة DMCA</a></li>
+                            <li><a href="suggest.html">اقترح لعبة أو أداة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">تابعنا</h3>
+                        <ul class="footer-social-links">
+                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i> فيسبوك</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i> تويتر</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                            <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> تيليجرام</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/suggestions.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة نظام الاقتراحات
+            initSuggestionSystem();
+            
+            // عرض الاقتراحات المقبولة
+            displayAcceptedSuggestions();
+            
+            // معالجة نموذج الاقتراح
+            const suggestionForm = document.getElementById('suggestion-form');
+            
+            if (suggestionForm) {
+                suggestionForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // التحقق من صحة النموذج
+                    const requiredFields = suggestionForm.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('error');
+                        } else {
+                            field.classList.remove('error');
+                        }
+                    });
+                    
+                    if (!isValid) {
+                        alert('يرجى ملء جميع الحقول المطلوبة.');
+                        return;
+                    }
+                    
+                    // جمع بيانات النموذج
+                    const formData = new FormData(suggestionForm);
+                    const suggestionData = {};
+                    
+                    for (const [key, value] of formData.entries()) {
+                        suggestionData[key] = value;
+                    }
+                    
+                    // إضافة معلومات إضافية
+                    suggestionData.id = generateUniqueId();
+                    suggestionData.date = new Date().toISOString();
+                    suggestionData.status = 'pending';
+                    
+                    // حفظ الاقتراح
+                    saveSuggestion(suggestionData);
+                    
+                    // إعادة تعيين النموذج
+                    suggestionForm.reset();
+                    
+                    // عرض رسالة نجاح
+                    alert('تم إرسال اقتراحك بنجاح. سيتم مراجعته من قبل فريق الموقع في أقرب وقت ممكن.');
+                });
+            }
+        });
+        
+        // دالة تهيئة نظام الاقتراحات
+        function initSuggestionSystem() {
+            // التحقق من وجود بيانات الاقتراحات في التخزين المحلي
+            if (!localStorage.getItem('4gamer_suggestions')) {
+                // إنشاء هيكل بيانات فارغ
+                const initialData = {
+                    suggestions: [],
+                    acceptedSuggestions: []
+                };
+                
+                // حفظ هيكل البيانات في التخزين المحلي
+                localStorage.setItem('4gamer_suggestions', JSON.stringify(initialData));
+            }
+        }
+        
+        // دالة حفظ الاقتراح
+        function saveSuggestion(suggestionData) {
+            // الحصول على بيانات الاقتراحات الحالية
+            const suggestionsData = JSON.parse(localStorage.getItem('4gamer_suggestions'));
+            
+            // إضافة الاقتراح الجديد
+            suggestionsData.suggestions.push(suggestionData);
+            
+            // حفظ البيانات المحدثة
+            localStorage.setItem('4gamer_suggestions', JSON.stringify(suggestionsData));
+        }
+        
+        // دالة عرض الاقتراحات المقبولة
+        function displayAcceptedSuggestions() {
+            // الحصول على بيانات الاقتراحات الحالية
+            const suggestionsData = JSON.parse(localStorage.getItem('4gamer_suggestions'));
+            
+            // الحصول على عنصر قائمة الاقتراحات
+            const suggestionsList = document.getElementById('suggestions-list');
+            
+            if (suggestionsList) {
+                // التحقق من وجود اقتراحات مقبولة
+                if (suggestionsData.acceptedSuggestions.length === 0) {
+                    suggestionsList.innerHTML = '<div class="no-suggestions">لا توجد اقتراحات مقبولة حالياً</div>';
+                    return;
+                }
+                
+                // ترتيب الاقتراحات المقبولة حسب التاريخ (الأحدث أولاً)
+                const sortedSuggestions = [...suggestionsData.acceptedSuggestions].sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+                
+                // إنشاء HTML لكل اقتراح مقبول
+                let html = '';
+                
+                sortedSuggestions.forEach(suggestion => {
+                    html += createSuggestionItemHTML(suggestion);
+                });
+                
+                // تحديث عنصر قائمة الاقتراحات
+                suggestionsList.innerHTML = html;
+            }
+        }
+        
+        // دالة إنشاء HTML لعنصر اقتراح
+        function createSuggestionItemHTML(suggestion) {
+            // تحديد نص نوع الاقتراح
+            let typeText = '';
+            switch (suggestion.type) {
+                case 'game':
+                    typeText = 'لعبة';
+                    break;
+                case 'theme':
+                    typeText = 'ثيم';
+                    break;
+                case 'app':
+                    typeText = 'تطبيق';
+                    break;
+                case 'tool':
+                    typeText = 'أداة';
+                    break;
+                default:
+                    typeText = 'أخرى';
+            }
+            
+            // تحديد نص المنصة
+            let platformText = '';
+            switch (suggestion.platform) {
+                case 'ps4':
+                    platformText = 'PS4';
+                    break;
+                case 'ps5':
+                    platformText = 'PS5';
+                    break;
+                case 'both':
+                    platformText = 'PS4 و PS5';
+                    break;
+                default:
+                    platformText = '';
+            }
+            
+            // تحديد نص الحالة
+            let statusText = '';
+            let statusClass = '';
+            switch (suggestion.status) {
+                case 'pending':
+                    statusText = 'قيد المراجعة';
+                    statusClass = 'status-pending';
+                    break;
+                case 'approved':
+                    statusText = 'تمت الموافقة';
+                    statusClass = 'status-approved';
+                    break;
+                case 'rejected':
+                    statusText = 'تم الرفض';
+                    statusClass = 'status-rejected';
+                    break;
+                case 'implemented':
+                    statusText = 'تم التنفيذ';
+                    statusClass = 'status-implemented';
+                    break;
+                default:
+                    statusText = 'قيد المراجعة';
+                    statusClass = 'status-pending';
+            }
+            
+            // إنشاء HTML لعنصر الاقتراح
+            return `
+                <div class="suggestion-item" data-id="${suggestion.id}">
+                    <div class="suggestion-header">
+                        <h3 class="suggestion-title">${suggestion.title}</h3>
+                        <span class="suggestion-type">${typeText}</span>
+                    </div>
+                    <div class="suggestion-meta">
+                        <span><i class="fab fa-playstation"></i> ${platformText}</span>
+                        <span><i class="far fa-calendar-alt"></i> ${formatDate(suggestion.date)}</span>
+                        <span><i class="far fa-user"></i> ${suggestion.name}</span>
+                    </div>
+                    <p class="suggestion-description">${suggestion.description}</p>
+                    <span class="suggestion-status ${statusClass}">${statusText}</span>
+                </div>
+            `;
+        }
+        
+        // دالة توليد معرف فريد
+        function generateUniqueId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+        }
+        
+        // دالة تنسيق التاريخ
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ar-SA', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+    </script>
+</body>
+</html>

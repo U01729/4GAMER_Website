@@ -1,0 +1,228 @@
+.suggestion-rules {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 30px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-rules h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--dark-surface-2);
+}
+
+.suggestion-rules h3 i {
+    color: #f59e0b;
+}
+
+.rules-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.rules-column {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+.rules-column.not-allowed {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.rules-column.allowed {
+    background-color: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.rules-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--dark-surface-2);
+}
+
+.not-allowed h4 {
+    color: #ef4444;
+}
+
+.allowed h4 {
+    color: #4ade80;
+}
+
+.rules-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules-column li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.rules-column li i {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.not-allowed li i {
+    color: #ef4444;
+}
+
+.allowed li i {
+    color: #4ade80;
+}
+
+.rules-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 15px;
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.rules-note i {
+    color: #3b82f6;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.rules-note p {
+    margin: 0;
+    color: var(--text-gray);
+}
+
+/* تحسينات رسالة النجاح */
+.form-success {
+    background-color: var(--dark-surface);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+.form-success h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.form-success p {
+    color: var(--text-gray);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.success-details {
+    background-color: var(--dark-surface-2);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+.success-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.success-detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.success-detail-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.success-detail-item span {
+    color: var(--text-gray);
+}
+
+.success-detail-item strong {
+    color: var(--text-light);
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.new-suggestion-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+    color: var(--dark-bg);
+    font-weight: 600;
+}
+
+.view-suggestions-btn {
+    background-color: var(--dark-surface-2);
+    color: var(--text-light);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* تحسينات للأجهزة المحمولة */
+@media (max-width: 768px) {
+    .rules-container {
+        flex-direction: column;
+    }
+    
+    .success-actions {
+        flex-direction: column;
+    }
+    
+    .success-actions .btn {
+        width: 100%;
+    }
+}

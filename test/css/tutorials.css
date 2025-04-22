@@ -1,0 +1,347 @@
+/* 
+ * 4GAMER Website - Tutorials & Videos Styles
+ * أنماط قسم الشروحات والفيديوهات لموقع 4GAMER
+ */
+
+/* حاوية قسم الشروحات */
+.tutorials-section {
+  padding: 60px 0;
+  position: relative;
+}
+
+.tutorials-section:nth-child(even) {
+  background-color: var(--dark-surface);
+}
+
+/* حاوية الفيديو */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* بطاقة الشرح */
+.tutorial-card {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.tutorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
+  overflow: hidden;
+  background-color: #000;
+}
+
+.tutorial-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+}
+
+.tutorial-card:hover .tutorial-thumbnail img {
+  transform: scale(1.05);
+}
+
+.tutorial-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  z-index: 1;
+  transition: all var(--transition-speed) ease;
+}
+
+.tutorial-card:hover .tutorial-play-btn {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+.tutorial-content {
+  padding: 20px;
+}
+
+.tutorial-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+.tutorial-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  margin-bottom: 15px;
+}
+
+.tutorial-meta-item {
+  display: flex;
+  align-items: center;
+}
+
+.tutorial-meta-item i {
+  margin-left: 5px;
+  color: var(--primary-color);
+}
+
+.tutorial-description {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.tutorial-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tutorial-tag {
+  background-color: var(--dark-surface);
+  color: var(--text-gray);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.tutorial-tag:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+/* شبكة الشروحات */
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+/* قسم الأخبار الكتابية */
+.news-card {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-img-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
+  overflow: hidden;
+  background-color: #000;
+}
+
+.news-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+}
+
+.news-card:hover .news-img {
+  transform: scale(1.05);
+}
+
+.news-content {
+  padding: 20px;
+}
+
+.news-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  margin-bottom: 15px;
+}
+
+.news-meta-item {
+  display: flex;
+  align-items: center;
+}
+
+.news-meta-item i {
+  margin-left: 5px;
+  color: var(--primary-color);
+}
+
+.news-description {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.news-read-more {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+}
+
+.news-read-more i {
+  margin-right: 5px;
+  transition: transform var(--transition-speed) ease;
+}
+
+.news-read-more:hover {
+  color: var(--primary-light);
+}
+
+.news-read-more:hover i {
+  transform: translateX(-5px);
+}
+
+/* قسم الشرح المميز */
+.featured-tutorial {
+  background-color: var(--dark-surface-2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 50px;
+}
+
+.featured-tutorial-content {
+  padding: 30px;
+}
+
+.featured-tutorial-badge {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.featured-tutorial-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.featured-tutorial-description {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.featured-tutorial-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+/* تعديلات للشاشات المختلفة */
+@media (max-width: 1200px) {
+  .tutorials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tutorials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-tutorial-title {
+    font-size: 1.5rem;
+  }
+  
+  .tutorial-play-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* تعديلات للوضع المضيء */
+[data-theme="light"] .tutorials-section:nth-child(even) {
+  background-color: var(--dark-surface-2);
+}
+
+[data-theme="light"] .tutorial-card,
+[data-theme="light"] .news-card,
+[data-theme="light"] .featured-tutorial {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .tutorial-card:hover,
+[data-theme="light"] .news-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .tutorial-tag {
+  background-color: #f1f5f9;
+}
+
+[data-theme="light"] .tutorial-tag:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}

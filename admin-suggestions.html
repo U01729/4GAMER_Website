@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الاقتراحات - لوحة الإدارة - 4GAMER</title>
+    <meta name="description" content="لوحة إدارة الاقتراحات لموقع 4GAMER - منصة PlayStation العربية الأولى">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin-panel.css">
+    <link rel="stylesheet" href="css/admin-suggestions.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- الشريط العلوي للوحة الإدارة -->
+    <nav class="admin-navbar">
+        <div class="container admin-navbar-container">
+            <div class="admin-navbar-brand">
+                <a href="admin-panel.html">
+                    <div class="admin-brand-logo">4GAMER</div>
+                </a>
+                <div class="admin-brand-tagline">لوحة الإدارة</div>
+            </div>
+            
+            <div class="admin-navbar-actions">
+                <div class="admin-notifications">
+                    <button class="admin-notifications-btn" id="notificationsBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notifications-count" id="notificationsCount">0</span>
+                    </button>
+                    <div class="admin-notifications-dropdown" id="notificationsDropdown">
+                        <div class="notifications-header">
+                            <h3>الإشعارات</h3>
+                            <button class="mark-all-read-btn" id="markAllReadBtn">تعيين الكل كمقروء</button>
+                        </div>
+                        <div class="notifications-list" id="notificationsList">
+                            <!-- سيتم إضافة الإشعارات هنا ديناميكياً -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-user">
+                    <button class="admin-user-btn" id="userBtn">
+                        <i class="fas fa-user-shield"></i>
+                        <span>المسؤول</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="admin-user-dropdown" id="userDropdown">
+                        <a href="admin-profile.html" class="admin-user-link">
+                            <i class="fas fa-user-cog"></i>
+                            <span>الملف الشخصي</span>
+                        </a>
+                        <a href="admin-settings.html" class="admin-user-link">
+                            <i class="fas fa-cog"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                        <a href="#" class="admin-user-link logout-link" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>تسجيل الخروج</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- محتوى لوحة الإدارة -->
+    <div class="admin-content">
+        <!-- القائمة الجانبية للوحة الإدارة -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h3>القائمة الرئيسية</h3>
+            </div>
+            
+            <ul class="admin-sidebar-menu">
+                <li class="admin-sidebar-item">
+                    <a href="admin-panel.html" class="admin-sidebar-link">
+                        <i class="fas fa-tachometer-alt admin-sidebar-icon"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-games.html" class="admin-sidebar-link">
+                        <i class="fas fa-gamepad admin-sidebar-icon"></i>
+                        <span>إدارة الألعاب</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-themes.html" class="admin-sidebar-link">
+                        <i class="fas fa-paint-brush admin-sidebar-icon"></i>
+                        <span>إدارة الثيمات</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-apps.html" class="admin-sidebar-link">
+                        <i class="fas fa-mobile-alt admin-sidebar-icon"></i>
+                        <span>إدارة التطبيقات</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-news.html" class="admin-sidebar-link">
+                        <i class="fas fa-newspaper admin-sidebar-icon"></i>
+                        <span>إدارة الأخبار</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-tutorials.html" class="admin-sidebar-link">
+                        <i class="fas fa-book admin-sidebar-icon"></i>
+                        <span>إدارة الشروحات</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item active">
+                    <a href="admin-suggestions.html" class="admin-sidebar-link">
+                        <i class="fas fa-lightbulb admin-sidebar-icon"></i>
+                        <span>إدارة الاقتراحات</span>
+                        <span class="admin-badge" id="newSuggestionsCount">0</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-users.html" class="admin-sidebar-link">
+                        <i class="fas fa-users admin-sidebar-icon"></i>
+                        <span>إدارة المستخدمين</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-settings.html" class="admin-sidebar-link">
+                        <i class="fas fa-cog admin-sidebar-icon"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+                
+                <li class="admin-sidebar-item">
+                    <a href="admin-backup.html" class="admin-sidebar-link">
+                        <i class="fas fa-database admin-sidebar-icon"></i>
+                        <span>النسخ الاحتياطي</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <!-- المحتوى الرئيسي للوحة الإدارة -->
+        <main class="admin-main">
+            <div class="admin-page-header">
+                <h1 class="admin-page-title">
+                    <i class="fas fa-lightbulb admin-page-icon"></i>
+                    إدارة الاقتراحات
+                </h1>
+                
+                <div class="admin-page-actions">
+                    <button class="admin-btn refresh-btn" id="refreshSuggestionsBtn">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>تحديث</span>
+                    </button>
+                    <button class="admin-btn export-btn" id="exportSuggestionsBtn">
+                        <i class="fas fa-file-export"></i>
+                        <span>تصدير</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="admin-content-wrapper">
+                <!-- قسم الإحصائيات -->
+                <div class="card dmca-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-chart-bar"></i> إحصائيات الاقتراحات</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="admin-stats-cards">
+                            <div class="admin-stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 class="stat-title">إجمالي الاقتراحات</h3>
+                                    <div class="stat-value" id="totalSuggestions">120</div>
+                                </div>
+                            </div>
+                            
+                            <div class="admin-stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 class="stat-title">اقتراحات الألعاب</h3>
+                                    <div class="stat-value" id="gameSuggestions">75</div>
+                                </div>
+                            </div>
+                            
+                            <div class="admin-stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 class="stat-title">اقتراحات الأدوات</h3>
+                                    <div class="stat-value" id="toolSuggestions">25</div>
+                                </div>
+                            </div>
+                            
+                            <div class="admin-stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3 class="stat-title">اقتراحات الشروحات</h3>
+                                    <div class="stat-value" id="tutorialSuggestions">20</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم تصفية الاقتراحات -->
+                <div class="card dmca-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-filter"></i> تصفية الاقتراحات</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="admin-filter-form">
+                            <div class="admin-filter-row">
+                                <div class="admin-filter-group">
+                                    <label for="filterStatus">الحالة</label>
+                                    <select id="filterStatus" class="admin-filter-select">
+                                        <option value="all">الكل</option>
+                                        <option value="new">جديد</option>
+                                        <option value="in-progress">قيد المراجعة</option>
+                                        <option value="approved">تمت الموافقة</option>
+                                        <option value="rejected">مرفوض</option>
+                                        <option value="implemented">تم التنفيذ</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="admin-filter-group">
+                                    <label for="filterType">النوع</label>
+                                    <select id="filterType" class="admin-filter-select">
+                                        <option value="all">الكل</option>
+                                        <option value="game">لعبة</option>
+                                        <option value="tool">أداة</option>
+                                        <option value="tutorial">شرح</option>
+                                        <option value="other">آخر</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="admin-filter-group">
+                                    <label for="filterDate">التاريخ</label>
+                                    <select id="filterDate" class="admin-filter-select">
+                                        <option value="all">الكل</option>
+                                        <option value="today">اليوم</option>
+                                        <option value="week">هذا الأسبوع</option>
+                                        <option value="month">هذا الشهر</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="admin-filter-group">
+                                    <label for="searchSuggestion">بحث</label>
+                                    <input type="text" id="searchSuggestion" class="admin-filter-input" placeholder="ابحث في الاقتراحات...">
+                                </div>
+                            </div>
+                            
+                            <div class="admin-filter-actions">
+                                <button class="admin-btn apply-filter-btn" id="applyFilterBtn">
+                                    <i class="fas fa-filter"></i>
+                                    <span>تطبيق التصفية</span>
+                                </button>
+                                <button class="admin-btn reset-filter-btn" id="resetFilterBtn">
+                                    <i class="fas fa-undo"></i>
+                                    <span>إعادة تعيين</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم قائمة الاقتراحات -->
+                <div class="card dmca-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-list"></i> قائمة الاقتراحات</h2>
+                        <div class="admin-section-actions">
+                            <button class="admin-btn delete-selected-btn" id="deleteSelectedBtn" disabled>
+                                <i class="fas fa-trash-alt"></i>
+                                <span>حذف المحدد</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="admin-table-container">
+                            <table class="admin-table" id="suggestionsTable">
+                                <thead>
+                                    <tr>
+                                        <th class="checkbox-cell">
+                                            <input type="checkbox" id="selectAllSuggestions">
+                                        </th>
+                                        <th>العنوان</th>
+                                        <th>النوع</th>
+                                        <th>التاريخ</th>
+                                        <th>البريد الإلكتروني</th>
+                                        <th>الحالة</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="suggestionsTableBody">
+                                    <!-- سيتم إضافة الاقتراحات هنا ديناميكياً -->
+                                    <tr>
+                                        <td class="checkbox-cell">
+                                            <input type="checkbox" class="suggestion-checkbox" data-id="1">
+                                        </td>
+                                        <td class="title-cell">إضافة لعبة Elden Ring المعربة</td>
+                                        <td class="type-cell"><span class="type-badge game">لعبة</span></td>
+                                        <td class="date-cell">15/04/2025</td>
+                                        <td class="email-cell">user@example.com</td>
+                                        <td class="status-cell"><span class="status-badge new">جديد</span></td>
+                                        <td class="actions-cell">
+                                            <button class="action-btn view-btn" data-id="1" title="عرض التفاصيل">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit-btn" data-id="1" title="تعديل الحالة">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete-btn" data-id="1" title="حذف">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkbox-cell">
+                                            <input type="checkbox" class="suggestion-checkbox" data-id="2">
+                                        </td>
+                                        <td class="title-cell">شرح تثبيت GoldHEN 2.4 على PS4</td>
+                                        <td class="type-cell"><span class="type-badge tutorial">شرح</span></td>
+                                        <td class="date-cell">10/04/2025</td>
+                                        <td class="email-cell">user2@example.com</td>
+                                        <td class="status-cell"><span class="status-badge in-progress">قيد المراجعة</span></td>
+                                        <td class="actions-cell">
+                                            <button class="action-btn view-btn" data-id="2" title="عرض التفاصيل">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit-btn" data-id="2" title="تعديل الحالة">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete-btn" data-id="2" title="حذف">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkbox-cell">
+                                            <input type="checkbox" class="suggestion-checkbox" data-id="3">
+                                        </td>
+                                        <td class="title-cell">أداة تحويل ملفات PKG إلى ISO</td>
+                                        <td class="type-cell"><span class="type-badge tool">أداة</span></td>
+                                        <td class="date-cell">05/04/2025</td>
+                                        <td class="email-cell">user3@example.com</td>
+                                        <td class="status-cell"><span class="status-badge approved">تمت الموافقة</span></td>
+                                        <td class="actions-cell">
+                                            <button class="action-btn view-btn" data-id="3" title="عرض التفاصيل">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn edit-btn" data-id="3" title="تعديل الحالة">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn delete-btn" data-id="3" title="حذف">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="admin-table-pagination" id="suggestionsPagination">
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn next">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="admin-table-empty" id="suggestionsEmpty" style="display: none;">
+                            <i class="fas fa-lightbulb empty-icon"></i>
+                            <h3>لا توجد اقتراحات</h3>
+                            <p>لم يتم العثور على أي اقتراحات تطابق معايير التصفية الحالية.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم الإرشادات -->
+                <div class="card dmca-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-info-circle"></i> إرشادات إدارة الاقتراحات</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="guidelines-content">
+                            <p>فيما يلي بعض الإرشادات لإدارة اقتراحات المستخدمين بشكل فعال:</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> <strong>مراجعة الاقتراحات الجديدة يومياً:</strong> تأكد من مراجعة الاقتراحات الجديدة بشكل يومي للحفاظ على تفاعل المستخدمين.</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>تحديث حالة الاقتراحات:</strong> قم بتحديث حالة الاقتراحات بانتظام لإبقاء المستخدمين على اطلاع بتقدم اقتراحاتهم.</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>التحقق من إمكانية التنفيذ:</strong> تأكد من إمكانية تنفيذ الاقتراح قبل الموافقة عليه.</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>الرد على المستخدمين:</strong> إذا قدم المستخدم بريده الإلكتروني، قم بإرسال رد مختصر عند تغيير حالة الاقتراح.</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>تصدير البيانات بانتظام:</strong> قم بتصدير بيانات الاقتراحات بشكل دوري للاحتفاظ بنسخة احتياطية.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- نافذة تفاصيل الاقتراح -->
+    <div class="admin-modal" id="suggestionDetailsModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 class="admin-modal-title">تفاصيل الاقتراح</h2>
+                <button class="admin-modal-close" id="closeDetailsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="admin-modal-body">
+                <div class="suggestion-details">
+                    <div class="suggestion-detail-item">
+                        <div class="detail-label">العنوان:</div>
+                        <div class="detail-value" id="detailTitle"></div>
+                    </div>
+                    <div class="suggestion-detail-item">
+                        <div class="detail-label">النوع:</div>
+                        <div class="detail-value" id="detailType"></div>
+                    </div>
+                    <div class="suggestion-detail-item">
+                        <div class="detail-label">التاريخ:</div>
+                        <div class="detail-value" id="detailDate"></div>
+                    </div>
+                    <div class="suggestion-detail-item">
+                        <div class="detail-label">البريد الإلكتروني:</div>
+                        <div class="detail-value" id="detailEmail"></div>
+                    </div>
+                    <div class="suggestion-detail-item">
+                        <div class="detail-label">الحالة:</div>
+                        <div class="detail-value" id="detailStatus"></div>
+                    </div>
+                    <div class="suggestion-detail-item full-width">
+                        <div class="detail-label">الوصف:</div>
+                        <div class="detail-value description" id="detailDescription"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn edit-status-btn" id="editStatusBtn">
+                    <i class="fas fa-edit"></i>
+                    <span>تعديل الحالة</span>
+                </button>
+                <button class="admin-btn delete-suggestion-btn" id="deleteSuggestionBtn">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>حذف</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة تعديل حالة الاقتراح -->
+    <div class="admin-modal" id="editStatusModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 class="admin-modal-title">تعديل حالة الاقتراح</h2>
+                <button class="admin-modal-close" id="closeEditStatusModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="editStatusForm">
+                    <div class="form-group">
+                        <label for="suggestionStatus">الحالة:</label>
+                        <select id="suggestionStatus" class="admin-form-select" required>
+                            <option value="new">جديد</option>
+                            <option value="in-progress">قيد المراجعة</option>
+                            <option value="approved">تمت الموافقة</option>
+                            <option value="rejected">مرفوض</option>
+                            <option value="implemented">تم التنفيذ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="statusNote">ملاحظات (اختياري):</label>
+                        <textarea id="statusNote" class="admin-form-textarea" rows="4" placeholder="أضف ملاحظات حول سبب تغيير الحالة..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="notifyUser">إشعار المستخدم:</label>
+                        <div class="admin-form-checkbox">
+                            <input type="checkbox" id="notifyUser" checked>
+                            <label for="notifyUser">إرسال إشعار للمستخدم عبر البريد الإلكتروني</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn save-status-btn" id="saveStatusBtn">
+                    <i class="fas fa-save"></i>
+                    <span>حفظ التغييرات</span>
+                </button>
+                <button class="admin-btn cancel-btn" id="cancelEditStatus">
+                    <i class="fas fa-times"></i>
+                    <span>إلغاء</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة تأكيد الحذف -->
+    <div class="admin-modal" id="confirmDeleteModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h2 class="admin-modal-title">تأكيد الحذف</h2>
+                <button class="admin-modal-close" id="closeConfirmDeleteModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="admin-modal-body">
+                <div class="confirm-message">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                    <p>هل أنت متأكد من رغبتك في حذف هذا الاقتراح؟ لا يمكن التراجع عن هذا الإجراء.</p>
+                </div>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn confirm-delete-btn" id="confirmDeleteBtn">
+                    <i class="fas fa-trash-alt"></i>
+                    <span>نعم، حذف</span>
+                </button>
+                <button class="admin-btn cancel-btn" id="cancelDelete">
+                    <i class="fas fa-times"></i>
+                    <span>إلغاء</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- سكريبتات JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin-panel.js"></script>
+    <script src="js/admin-suggestions.js"></script>
+</body>
+</html>

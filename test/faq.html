@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - 4GAMER</title>
+    <meta name="description" content="الأسئلة الشائعة حول موقع 4GAMER وخدماته">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة الأسئلة الشائعة */
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .faq-section {
+            margin-bottom: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-section h2 {
+            color: var(--heading-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .faq-section h2 i {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(90deg);
+        }
+        
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+        
+        .faq-answer {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-right: 30px;
+            padding-right: 10px;
+            border-right: 3px solid var(--primary-color);
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-answer ul, .faq-answer ol {
+            margin: 15px 0;
+            padding-right: 20px;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .faq-highlight {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border-right: 3px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .faq-highlight p {
+            margin-bottom: 0;
+        }
+        
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .faq-category {
+            padding: 8px 15px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-category:hover, .faq-category.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+        
+        .faq-search {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-search input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .faq-search i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+        
+        .faq-contact {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .faq-contact h3 {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .faq-contact p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .faq-contact-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-contact-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .faq-contact-btn i {
+            margin-left: 8px;
+        }
+        
+        /* تنسيقات متجاوبة */
+        @media (max-width: 768px) {
+            .faq-categories {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .faq-category {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">محسن الأداء لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">محسن الأداء لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="system-enhancements.html" class="dropdown-link">
+                    <span><i class="fas fa-rocket dropdown-icon"></i> تحسينات النظام</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-system-enhancements.html" class="dropdown-sublink">شروحات تحسينات النظام</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link active">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="suggest.html" class="dropdown-link">
+                    <span><i class="fas fa-lightbulb dropdown-icon"></i> اقترح لعبة أو أداة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            <section class="page-section">
+                <div class="section-header">
+                    <h1 class="section-title">الأسئلة الشائعة</h1>
+                    <div class="section-subtitle">إجابات على الأسئلة الأكثر شيوعًا حول موقع 4GAMER وخدماته</div>
+                </div>
+                
+                <div class="faq-container">
+                    <!-- قسم البحث والتصفية -->
+                    <div class="faq-search">
+                        <input type="text" id="faq-search-input" placeholder="ابحث في الأسئلة الشائعة...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="faq-categories">
+                        <div class="faq-category active" data-category="all">جميع الأسئلة</div>
+                        <div class="faq-category" data-category="general">أسئلة عامة</div>
+                        <div class="faq-category" data-category="games">الألعاب</div>
+                        <div class="faq-category" data-category="system">تحسينات النظام</div>
+                        <div class="faq-category" data-category="account">الحساب والتسجيل</div>
+                        <div class="faq-category" data-category="technical">مشاكل تقنية</div>
+                    </div>
+                    
+                    <!-- قسم الأسئلة العامة -->
+                    <div class="faq-section">
+                        <h2><i class="fas fa-info-circle"></i> أسئلة عامة</h2>
+                        
+                        <div class="faq-item" data-category="general">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>ما هو موقع 4GAMER؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>موقع 4GAMER هو منصة عربية متخصصة في ألعاب PlayStation بمختلف إصداراتها (PS4, PS5) مع تركيز خاص على الألعاب المعربة والمحتوى العربي. يهدف الموقع إلى توفير مصدر شامل للاعبين العرب للوصول إلى الألعاب والثيمات والتطبيقات وتحسينات النظام.</p>
+                                <p>نقدم محتوى متنوعًا يشمل:</p>
+                                <ul>
+                                    <li>ألعاب PS4 و PS5 مع التركيز على النسخ المعربة</li>
+                                    <li>ثيمات وخلفيات مميزة</li>
+                                    <li>تطبيقات وأدوات مفيدة</li>
+                                    <li>تحسينات النظام وتحديثاته</li>
+                                    <li>شروحات وأدلة مفصلة</li>
+                                    <li>أخبار عالم PlayStation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="general">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>هل الموقع رسمي تابع لشركة Sony؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>لا، موقع 4GAMER ليس موقعًا رسميًا تابعًا لشركة Sony أو PlayStation. نحن منصة مستقلة متخصصة في محتوى PlayStation باللغة العربية، ونهدف إلى خدمة مجتمع اللاعبين العرب.</p>
+                                <div class="faq-highlight">
+                                    <p>ملاحظة: جميع العلامات التجارية والشعارات المذكورة في الموقع هي ملك لأصحابها الشرعيين. استخدامنا لها هو للإشارة إلى المنتجات والخدمات ذات الصلة.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="general">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>هل المحتوى المقدم في الموقع مجاني؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>نعم، الوصول إلى محتوى موقع 4GAMER مجاني بالكامل. نحن نقدم روابط للألعاب والثيمات والتطبيقات وتحسينات النظام دون أي تكلفة على المستخدم.</p>
+                                <p>ومع ذلك، يرجى ملاحظة أن بعض الألعاب والمحتويات قد تكون مدفوعة من مصادرها الأصلية، ونحن نشجع دائمًا على دعم المطورين من خلال شراء المحتوى الأصلي.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="general">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>كيف يمكنني التواصل مع إدارة الموقع؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>يمكنك التواصل معنا من خلال عدة طرق:</p>
+                                <ul>
+                                    <li>عبر <a href="contact.html">نموذج الاتصال</a> في موقعنا</li>
+                                    <li>عبر البريد الإلكتروني: <a href="mailto:contact@4gamer.com">contact@4gamer.com</a></li>
+                                    <li>من خلال قناتنا على <a href="https://t.me/C9_91" target="_blank">Telegram</a></li>
+                                    <li>عبر حساباتنا على منصات التواصل الاجتماعي المذكورة في أسفل الصفحة</li>
+                                </ul>
+                                <p>نحن نسعى للرد على جميع الاستفسارات في أقرب وقت ممكن، عادة خلال 24-48 ساعة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم أسئلة الألعاب -->
+                    <div class="faq-section">
+                        <h2><i class="fas fa-gamepad"></i> أسئلة حول الألعاب</h2>
+                        
+                        <div class="faq-item" data-category="games">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>ما المقصود بالألعاب المعربة؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>الألعاب المعربة هي الألعاب التي تمت ترجمة واجهتها ونصوصها وأحيانًا الأصوات فيها إلى اللغة العربية، سواء بشكل رسمي من قبل الشركة المطورة أو من خلال جهود المجتمع.</p>
+                                <p>نحن في 4GAMER نركز على توفير الألعاب التي تدعم اللغة العربية بشكل رسمي، بالإضافة إلى الألعاب التي تمت ترجمتها بواسطة فرق الترجمة المجتمعية المحترفة.</p>
+                                <div class="faq-highlight">
+                                    <p>ملاحظة: نحن نميز بوضوح بين الترجمات الرسمية والترجمات المجتمعية في وصف كل لعبة.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="games">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>كيف يمكنني تثبيت الألعاب من الموقع؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>تختلف طريقة تثبيت الألعاب حسب نوع الجهاز ونسخة النظام. بشكل عام، تتبع الخطوات التالية:</p>
+                                <ol>
+                                    <li>قم بتحميل ملف اللعبة من الرابط المتوفر في صفحة اللعبة</li>
+                                    <li>انقل الملف إلى جهاز التخزين الخارجي (مثل فلاش USB)</li>
+                                    <li>قم بتوصيل جهاز التخزين بجهاز PlayStation الخاص بك</li>
+                                    <li>اتبع التعليمات المفصلة في صفحة اللعبة أو في قسم الشروحات</li>
+                                </ol>
+                                <p>لمزيد من التفاصيل، يرجى الاطلاع على <a href="tutorials-ps4.html">شروحات PS4</a> أو <a href="tutorials-ps5.html">شروحات PS5</a> حسب جهازك.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="games">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>هل الألعاب المتوفرة في الموقع آمنة؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>نعم، نحن نحرص على توفير محتوى آمن وموثوق. جميع الألعاب والملفات المتوفرة في موقعنا يتم فحصها للتأكد من خلوها من البرمجيات الضارة قبل نشرها.</p>
+                                <p>نحن نستخدم مصادر موثوقة ونتحقق من سلامة الملفات بشكل دوري. ومع ذلك، ننصح دائمًا باتباع إرشادات الأمان العامة:</p>
+                                <ul>
+                                    <li>تأكد من تحديث نظام جهازك إلى أحدث إصدار</li>
+                                    <li>قم بتحميل الملفات من الروابط الرسمية في موقعنا فقط</li>
+                                    <li>تجنب المواقع المشبوهة التي تدعي توفير نفس المحتوى</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="games">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>كيف يمكنني اقتراح إضافة لعبة غير موجودة في الموقع؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>يمكنك اقتراح إضافة لعبة جديدة من خلال صفحة <a href="suggest.html">اقترح لعبة أو أداة</a>. قم بملء النموذج بالمعلومات المطلوبة، وسيقوم فريقنا بمراجعة اقتراحك والرد عليه في أقرب وقت ممكن.</p>
+                                <p>نحن نرحب باقتراحاتكم ونسعى دائمًا لإثراء محتوى الموقع بما يلبي احتياجات مجتمع اللاعبين العرب.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم أسئلة تحسينات النظام -->
+                    <div class="faq-section">
+                        <h2><i class="fas fa-rocket"></i> أسئلة حول تحسينات النظام</h2>
+                        
+                        <div class="faq-item" data-category="system">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>ما هي تحسينات النظام (System Enhancements)؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>تحسينات النظام هي برمجيات وأدوات تهدف إلى تحسين أداء أجهزة PlayStation وإضافة ميزات غير متوفرة في النظام الأساسي. تشمل هذه التحسينات:</p>
+                                <ul>
+                                    <li>أدوات تحسين الأداء مثل GoldHEN</li>
+                                    <li>إضافات لتشغيل التطبيقات والألعاب المخصصة</li>
+                                    <li>أدوات لتخصيص واجهة المستخدم</li>
+                                    <li>حلول لمشاكل تقنية معينة</li>
+                                </ul>
+                                <div class="faq-highlight">
+                                    <p>تنبيه: استخدام بعض تحسينات النظام قد يؤثر على ضمان جهازك أو قد يخالف شروط الخدمة الخاصة بـ PlayStation. نحن نقدم هذه الأدوات لأغراض تعليمية ومعلوماتية فقط، والاستخدام يكون على مسؤوليتك الشخصية.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="system">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>هل تحسينات النظام آمنة للاستخدام؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>تحسينات النظام التي نقدمها في موقعنا تم اختبارها من قبل مجتمع المطورين والمستخدمين، ونحرص على توفير الإصدارات المستقرة والآمنة منها. ومع ذلك، يجب أن تكون على دراية بالمخاطر المحتملة:</p>
+                                <ul>
+                                    <li>قد تؤدي إلى إلغاء ضمان جهازك</li>
+                                    <li>قد تؤدي إلى حظر حسابك على الشبكة في حالة استخدامها بشكل غير مسؤول</li>
+                                    <li>في حالات نادرة، قد تسبب مشاكل في النظام إذا لم يتم اتباع التعليمات بدقة</li>
+                                </ul>
+                                <p>لذلك، ننصح دائمًا باتباع التعليمات بدقة، وقراءة الشروحات المفصلة قبل استخدام أي من هذه الأدوات.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="system">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>ما هو GoldHEN وكيف يمكنني استخدامه؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>GoldHEN هو أحد أشهر أدوات تحسين الأداء لأجهزة PlayStation 4 و PlayStation 5. يوفر مجموعة من الميزات مثل:</p>
+                                <ul>
+                                    <li>تشغيل التطبيقات والألعاب المخصصة</li>
+                                    <li>تعديل وتخصيص واجهة المستخدم</li>
+                                    <li>إمكانية أخذ نسخ احتياطية من الألعاب والبيانات</li>
+                                    <li>تحسين أداء الجهاز في بعض الحالات</li>
+                                </ul>
+                                <p>لمعرفة كيفية استخدام GoldHEN، يرجى الاطلاع على الشروحات المفصلة في قسم <a href="ps4-goldhen.html">محسن الأداء لـ PS4</a> أو <a href="ps5-goldhen.html">محسن الأداء لـ PS5</a> حسب جهازك.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم أسئلة الحساب والتسجيل -->
+                    <div class="faq-section">
+                        <h2><i class="fas fa-user"></i> أسئلة حول الحساب والتسجيل</h2>
+                        
+                        <div class="faq-item" data-category="account">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>هل أحتاج إلى التسجيل لاستخدام موقع 4GAMER؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>لا، لا تحتاج إلى التسجيل لاستخدام معظم خدمات موقع 4GAMER. يمكنك تصفح الموقع وتحميل المحتوى المتاح دون الحاجة إلى إنشاء حساب.</p>
+                                <p>ومع ذلك، قد نقدم في المستقبل ميزات إضافية للمستخدمين المسجلين، مثل:</p>
+                                <ul>
+                                    <li>حفظ قائمة المفضلة</li>
+                                    <li>تلقي إشعارات بالتحديثات الجديدة</li>
+                                    <li>المشاركة في المنتديات والمناقشات</li>
+                                    <li>الوصول إلى محتوى حصري</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="account">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>كيف يمكنني الاشتراك في النشرة البريدية؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>للاشتراك في النشرة البريدية، يمكنك إدخال بريدك الإلكتروني في نموذج الاشتراك الموجود في أسفل الصفحة الرئيسية أو في صفحة <a href="contact.html">اتصل بنا</a>.</p>
+                                <p>من خلال الاشتراك في النشرة البريدية، ستتلقى:</p>
+                                <ul>
+                                    <li>آخر الأخبار والتحديثات</li>
+                                    <li>إشعارات بالألعاب الجديدة</li>
+                                    <li>نصائح وإرشادات مفيدة</li>
+                                    <li>عروض وفعاليات خاصة</li>
+                                </ul>
+                                <p>يمكنك إلغاء الاشتراك في أي وقت من خلال الرابط الموجود في أسفل كل رسالة بريدية.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم المشاكل التقنية -->
+                    <div class="faq-section">
+                        <h2><i class="fas fa-wrench"></i> مشاكل تقنية</h2>
+                        
+                        <div class="faq-item" data-category="technical">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>لماذا لا يمكنني تحميل بعض الملفات؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>قد تواجه مشاكل في تحميل الملفات لعدة أسباب:</p>
+                                <ul>
+                                    <li>انتهاء صلاحية الرابط أو إزالة الملف من المصدر</li>
+                                    <li>مشاكل في اتصال الإنترنت الخاص بك</li>
+                                    <li>حظر التحميل من قبل مزود خدمة الإنترنت</li>
+                                    <li>استخدام متصفح غير متوافق أو قديم</li>
+                                </ul>
+                                <p>للتغلب على هذه المشاكل، يمكنك:</p>
+                                <ul>
+                                    <li>تحديث الصفحة والمحاولة مرة أخرى</li>
+                                    <li>استخدام متصفح آخر</li>
+                                    <li>التحقق من اتصال الإنترنت الخاص بك</li>
+                                    <li>استخدام شبكة VPN موثوقة</li>
+                                    <li>الإبلاغ عن المشكلة من خلال <a href="contact.html">نموذج الاتصال</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="technical">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>كيف يمكنني الإبلاغ عن رابط معطل؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>إذا واجهت رابطًا معطلاً أو ملفًا لا يمكن تحميله، يمكنك الإبلاغ عنه من خلال:</p>
+                                <ul>
+                                    <li>استخدام زر "الإبلاغ عن رابط معطل" الموجود في صفحة اللعبة أو المحتوى</li>
+                                    <li>إرسال رسالة عبر <a href="contact.html">نموذج الاتصال</a> مع ذكر اسم اللعبة أو المحتوى ورابط الصفحة</li>
+                                    <li>مراسلتنا عبر البريد الإلكتروني: <a href="mailto:support@4gamer.com">support@4gamer.com</a></li>
+                                </ul>
+                                <p>نحن نقدر مساعدتكم في الحفاظ على جودة الموقع، ونسعى لإصلاح الروابط المعطلة في أسرع وقت ممكن.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-category="technical">
+                            <div class="faq-question">
+                                <i class="fas fa-chevron-right"></i>
+                                <span>الموقع لا يعمل بشكل صحيح على جهازي، ماذا أفعل؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>إذا كان الموقع لا يعمل بشكل صحيح على جهازك، يمكنك تجربة الحلول التالية:</p>
+                                <ol>
+                                    <li>تحديث المتصفح إلى أحدث إصدار</li>
+                                    <li>مسح ذاكرة التخزين المؤقت (Cache) وملفات تعريف الارتباط (Cookies)</li>
+                                    <li>تعطيل إضافات حظر الإعلانات مؤقتًا</li>
+                                    <li>تجربة متصفح آخر</li>
+                                    <li>التحقق من إعدادات JavaScript في المتصفح (يجب أن تكون مفعلة)</li>
+                                </ol>
+                                <p>إذا استمرت المشكلة، يرجى إرسال تفاصيل المشكلة إلينا مع ذكر:</p>
+                                <ul>
+                                    <li>نوع الجهاز ونظام التشغيل</li>
+                                    <li>اسم المتصفح وإصداره</li>
+                                    <li>وصف دقيق للمشكلة</li>
+                                    <li>لقطة شاشة للمشكلة إن أمكن</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- قسم التواصل -->
+                    <div class="faq-contact">
+                        <h3>لم تجد إجابتك؟</h3>
+                        <p>يمكنك زيارة صفحة اتصل بنا أو مراسلتنا عبر البريد الإلكتروني.</p>
+                        <a href="contact.html" class="faq-contact-btn">
+                            اتصل بنا <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <div class="footer-logo-text">4GAMER</div>
+                    <div class="footer-tagline">منصة PlayStation العربية الأولى</div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">روابط سريعة</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                            <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                            <li><a href="news.html">الأخبار</a></li>
+                            <li><a href="tutorials-ps4.html">الشروحات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">الدعم</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="dmca.html">سياسة DMCA</a></li>
+                            <li><a href="suggest.html">اقترح لعبة أو أداة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">تابعنا</h3>
+                        <ul class="footer-social-links">
+                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i> فيسبوك</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i> تويتر</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                            <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> تيليجرام</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة نظام الأسئلة الشائعة
+            initFAQ();
+            
+            // تهيئة نظام البحث في الأسئلة الشائعة
+            initFAQSearch();
+            
+            // تهيئة نظام تصفية الأسئلة حسب الفئة
+            initFAQCategories();
+        });
+        
+        // دالة تهيئة نظام الأسئلة الشائعة
+        function initFAQ() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    // تبديل حالة السؤال الحالي
+                    this.classList.toggle('active');
+                    
+                    // الحصول على الإجابة المرتبطة بالسؤال
+                    const answer = this.nextElementSibling;
+                    
+                    // تبديل حالة الإجابة
+                    answer.classList.toggle('active');
+                });
+            });
+        }
+        
+        // دالة تهيئة نظام البحث في الأسئلة الشائعة
+        function initFAQSearch() {
+            const searchInput = document.getElementById('faq-search-input');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.trim().toLowerCase();
+                    const faqItems = document.querySelectorAll('.faq-item');
+                    
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                        
+                        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // إعادة تعيين التصفية حسب الفئة
+                    const categoryButtons = document.querySelectorAll('.faq-category');
+                    categoryButtons.forEach(button => {
+                        button.classList.remove('active');
+                    });
+                    
+                    document.querySelector('.faq-category[data-category="all"]').classList.add('active');
+                });
+            }
+        }
+        
+        // دالة تهيئة نظام تصفية الأسئلة حسب الفئة
+        function initFAQCategories() {
+            const categoryButtons = document.querySelectorAll('.faq-category');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // إزالة الفئة النشطة من جميع الأزرار
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // إضافة الفئة النشطة للزر الحالي
+                    this.classList.add('active');
+                    
+                    // الحصول على فئة التصفية
+                    const category = this.getAttribute('data-category');
+                    
+                    // تصفية العناصر حسب الفئة
+                    const faqItems = document.querySelectorAll('.faq-item');
+                    
+                    faqItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // إعادة تعيين البحث
+                    document.getElementById('faq-search-input').value = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة - 4GAMER</title>
+    <meta name="description" content="لوحة إدارة موقع 4GAMER - منصة PlayStation العربية الأولى">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بلوحة الإدارة */
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .admin-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .admin-header p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        
+        .admin-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .admin-tab {
+            padding: 12px 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            color: var(--text-color);
+        }
+        
+        .admin-tab:hover {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+        }
+        
+        .admin-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .admin-tab i {
+            margin-left: 8px;
+        }
+        
+        .admin-content {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .admin-section {
+            display: none;
+        }
+        
+        .admin-section.active {
+            display: block;
+        }
+        
+        .admin-section-title {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .admin-section-title i {
+            color: var(--primary-color);
+        }
+        
+        /* تنسيقات لوحة الإحصائيات */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-card:nth-child(1) {
+            border-left-color: #4caf50;
+        }
+        
+        .stat-card:nth-child(2) {
+            border-left-color: #2196f3;
+        }
+        
+        .stat-card:nth-child(3) {
+            border-left-color: #ff9800;
+        }
+        
+        .stat-card:nth-child(4) {
+            border-left-color: #9c27b0;
+        }
+        
+        .stat-title {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stat-title i {
+            color: var(--primary-color);
+        }
+        
+        .stat-card:nth-child(1) .stat-title i {
+            color: #4caf50;
+        }
+        
+        .stat-card:nth-child(2) .stat-title i {
+            color: #2196f3;
+        }
+        
+        .stat-card:nth-child(3) .stat-title i {
+            color: #ff9800;
+        }
+        
+        .stat-card:nth-child(4) .stat-title i {
+            color: #9c27b0;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+        
+        .stat-info {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        
+        /* تنسيقات نموذج إضافة لعبة */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--heading-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 15px center;
+            background-size: 16px;
+            padding-left: 40px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+        
+        .btn-info:hover {
+            background-color: #138496;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        /* تنسيقات جدول الألعاب */
+        .games-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .games-table th,
+        .games-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .games-table th {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+        
+        .games-table tr:hover {
+            background-color: rgba(var(--primary-color-rgb), 0.05);
+        }
+        
+        .games-table .actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .games-table .action-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .games-table .edit-btn {
+            background-color: #17a2b8;
+        }
+        
+        .games-table .delete-btn {
+            background-color: #dc3545;
+        }
+        
+        .games-table .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* تنسيقات قسم إدارة المشرفين */
+        .admins-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .admin-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .admin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+        
+        .admin-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .admin-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .admin-info h3 {
+            font-size: 1.2rem;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+        
+        .admin-role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .admin-details {
+            margin-top: 15px;
+        }
+        
+        .admin-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        
+        .admin-detail i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .admin-actions .btn {
+            flex: 1;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            justify-content: center;
+        }
+        
+        /* تنسيقات قسم الاقتراحات */
+        .suggestion-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .suggestion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .suggestion-title {
+            font-size: 1.3rem;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+        
+        .suggestion-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        
+        .suggestion-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .suggestion-meta i {
+            color: var(--primary-color);
+        }
+        
+        .suggestion-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .suggestion-badge.game {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+        }
+        
+        .suggestion-badge.tool {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+        
+        .suggestion-badge.other {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+        }
+        
+        .suggestion-content {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .suggestion-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* تنسيقات الإشعارات */
+        .notification {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .notification.success {
+            background-color: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+        
+        .notification.error {
+            background-color: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+        
+        /* تنسيقات للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .admin-header h1 {
+                font-size: 2rem;
+            }
+            
+            .admin-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .games-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .admin-section-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+                
+                <!-- زر تسجيل الخروج -->
+                <button id="logout-btn" class="logout-btn" aria-label="تسجيل الخروج">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item active">
+                <a href="admin-panel.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> لوحة الإدارة</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1>لوحة إدارة الموقع</h1>
+                <p>مرحباً بك في لوحة إدارة موقع 4GAMER، يمكنك من هنا إدارة محتوى الموقع بسهولة</p>
+            </div>
+            
+            <div id="notification" class="notification"></div>
+            
+            <div class="admin-tabs">
+                <div class="admin-tab active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> لوحة المعلومات
+                </div>
+                <div class="admin-tab" data-tab="add-game">
+                    <i class="fas fa-plus-circle"></i> إضافة لعبة
+                </div>
+                <div class="admin-tab" data-tab="manage-games">
+                    <i class="fas fa-gamepad"></i> إدارة الألعاب
+                </div>
+                <div class="admin-tab" data-tab="manage-admins">
+                    <i class="fas fa-users-cog"></i> إدارة المشرفين
+                </div>
+                <div class="admin-tab" data-tab="suggestions">
+                    <i class="fas fa-lightbulb"></i> الاقتراحات
+                </div>
+            </div>
+            
+            <div class="admin-content">
+                <!-- قسم لوحة المعلومات -->
+                <div class="admin-section active" id="dashboard">
+                    <h2 class="admin-section-title"><i class="fas fa-tachometer-alt"></i> لوحة المعلومات</h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-title"><i class="fas fa-users"></i> إجمالي الزوار</div>
+                            <div class="stat-value" id="visitors-count">125,487</div>
+                            <div class="stat-info">منذ إطلاق الموقع في يناير 2023</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-title"><i class="fas fa-gamepad"></i> عدد الألعاب</div>
+                            <div class="stat-value" id="games-count">247</div>
+                            <div class="stat-info">تشمل ألعاب PS4 و PS5</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-title"><i class="fas fa-lightbulb"></i> الاقتراحات</div>
+                            <div class="stat-value" id="suggestions-count">38</div>
+                            <div class="stat-info">اقتراحات بانتظار المراجعة</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-title"><i class="fas fa-user-shield"></i> المشرفين النشطين</div>
+                            <div class="stat-value" id="admins-count">5</div>
+                            <div class="stat-info">يعملون على تطوير الموقع</div>
+                        </div>
+                    </div>
+                    
+                    <h3>آخر النشاطات</h3>
+                    <ul class="activity-list" id="activity-list">
+                        <li><i class="fas fa-plus-circle"></i> تمت إضافة لعبة "Assassin's Creed Mirage" <span class="activity-time">منذ 2 ساعة</span></li>
+                        <li><i class="fas fa-edit"></i> تم تحديث معلومات لعبة "God of War Ragnarök" <span class="activity-time">منذ 5 ساعات</span></li>
+                        <li><i class="fas fa-user-plus"></i> تمت إضافة مشرف جديد "محمد أحمد" <span class="activity-time">منذ يوم واحد</span></li>
+                        <li><i class="fas fa-check-circle"></i> تمت الموافقة على اقتراح إضافة لعبة "Final Fantasy XVI" <span class="activity-time">منذ يومين</span></li>
+                        <li><i class="fas fa-trash-alt"></i> تم حذف لعبة "Cyberpunk 2077" النسخة القديمة <span class="activity-time">منذ 3 أيام</span></li>
+                    </ul>
+                </div>
+                
+                <!-- قسم إضافة لعبة -->
+                <div class="admin-section" id="add-game">
+                    <h2 class="admin-section-title"><i class="fas fa-plus-circle"></i> إضافة لعبة جديدة</h2>
+                    
+                    <form id="addGameForm">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameTitle">اسم اللعبة *</label>
+                                    <input type="text" id="gameTitle" name="gameTitle" placeholder="مثال: God of War Ragnarök" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gamePlatform">المنصة *</label>
+                                    <select id="gamePlatform" name="gamePlatform" required>
+                                        <option value="" disabled selected>اختر المنصة</option>
+                                        <option value="ps4">PlayStation 4</option>
+                                        <option value="ps5">PlayStation 5</option>
+                                        <option value="both">PS4 & PS5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameGenre">التصنيف *</label>
+                                    <select id="gameGenre" name="gameGenre" required>
+                                        <option value="" disabled selected>اختر التصنيف</option>
+                                        <option value="action">أكشن</option>
+                                        <option value="adventure">مغامرات</option>
+                                        <option value="rpg">ألعاب أدوار</option>
+                                        <option value="sports">رياضة</option>
+                                        <option value="racing">سباقات</option>
+                                        <option value="fighting">قتال</option>
+                                        <option value="horror">رعب</option>
+                                        <option value="strategy">استراتيجية</option>
+                                        <option value="openworld">عالم مفتوح</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameSize">حجم اللعبة (بالجيجابايت) *</label>
+                                    <input type="number" id="gameSize" name="gameSize" placeholder="مثال: 45.6" step="0.1" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameRegion">المنطقة *</label>
+                                    <select id="gameRegion" name="gameRegion" required>
+                                        <option value="" disabled selected>اختر المنطقة</option>
+                                        <option value="usa">USA</option>
+                                        <option value="europe">Europe</option>
+                                        <option value="japan">Japan</option>
+                                        <option value="asia">Asia</option>
+                                        <option value="arabic">Arabic</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameLanguage">اللغات المدعومة *</label>
+                                    <input type="text" id="gameLanguage" name="gameLanguage" placeholder="مثال: العربية، الإنجليزية، الفرنسية" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gameDescription">وصف اللعبة *</label>
+                            <textarea id="gameDescription" name="gameDescription" placeholder="اكتب وصفاً تفصيلياً للعبة..." required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameImage">صورة اللعبة *</label>
+                                    <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-col">
+                                <div class="form-group">
+                                    <label for="gameDownloadLink">رابط التحميل *</label>
+                                    <input type="url" id="gameDownloadLink" name="gameDownloadLink" placeholder="أدخل رابط تحميل اللعبة" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> إضافة اللعبة</button>
+                            <button type="reset" class="btn btn-danger"><i class="fas fa-times-circle"></i> إلغاء</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- قسم إدارة الألعاب -->
+                <div class="admin-section" id="manage-games">
+                    <h2 class="admin-section-title"><i class="fas fa-gamepad"></i> إدارة الألعاب</h2>
+                    
+                    <div class="search-filter">
+                        <input type="text" id="gameSearch" placeholder="ابحث عن لعبة..." class="search-input">
+                        <select id="platformFilter" class="filter-select">
+                            <option value="all">جميع المنصات</option>
+                            <option value="ps4">PS4</option>
+                            <option value="ps5">PS5</option>
+                            <option value="both">PS4 & PS5</option>
+                        </select>
+                    </div>
+                    
+                    <table class="games-table" id="gamesTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم اللعبة</th>
+                                <th>المنصة</th>
+                                <th>الحجم</th>
+                                <th>التصنيف</th>
+                                <th>تاريخ الإضافة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>God of War Ragnarök</td>
+                                <td>PS5</td>
+                                <td>84.6 GB</td>
+                                <td>أكشن، مغامرات</td>
+                                <td>15/03/2023</td>
+                                <td class="actions">
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Horizon Forbidden West</td>
+                                <td>PS4 & PS5</td>
+                                <td>97.8 GB</td>
+                                <td>أكشن، عالم مفتوح</td>
+                                <td>22/02/2023</td>
+                                <td class="actions">
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Spider-Man: Miles Morales</td>
+                                <td>PS4 & PS5</td>
+                                <td>52.3 GB</td>
+                                <td>أكشن، مغامرات</td>
+                                <td>10/01/2023</td>
+                                <td class="actions">
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Demon's Souls</td>
+                                <td>PS5</td>
+                                <td>66.2 GB</td>
+                                <td>أكشن، ألعاب أدوار</td>
+                                <td>05/01/2023</td>
+                                <td class="actions">
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>FIFA 23</td>
+                                <td>PS4 & PS5</td>
+                                <td>45.7 GB</td>
+                                <td>رياضة</td>
+                                <td>30/12/2022</td>
+                                <td class="actions">
+                                    <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="pagination">
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <button class="pagination-btn">4</button>
+                        <button class="pagination-btn">5</button>
+                        <button class="pagination-btn">التالي &raquo;</button>
+                    </div>
+                </div>
+                
+                <!-- قسم إدارة المشرفين -->
+                <div class="admin-section" id="manage-admins">
+                    <h2 class="admin-section-title"><i class="fas fa-users-cog"></i> إدارة المشرفين</h2>
+                    
+                    <button class="btn btn-primary" id="addAdminBtn"><i class="fas fa-user-plus"></i> إضافة مشرف جديد</button>
+                    
+                    <div class="admins-list" id="adminsList">
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <div class="admin-avatar">أ</div>
+                                <div class="admin-info">
+                                    <h3>أحمد محمد</h3>
+                                    <div class="admin-role">مدير الموقع</div>
+                                </div>
+                            </div>
+                            <div class="admin-details">
+                                <div class="admin-detail">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>ahmed@4gamer.com</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>تاريخ الانضمام: 10/01/2023</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>الصلاحيات: كاملة</span>
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-info"><i class="fas fa-edit"></i> تعديل</button>
+                                <button class="btn btn-danger"><i class="fas fa-user-times"></i> إزالة</button>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <div class="admin-avatar">م</div>
+                                <div class="admin-info">
+                                    <h3>محمد علي</h3>
+                                    <div class="admin-role">مشرف محتوى</div>
+                                </div>
+                            </div>
+                            <div class="admin-details">
+                                <div class="admin-detail">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>mohamed@4gamer.com</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>تاريخ الانضمام: 15/02/2023</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>الصلاحيات: إدارة المحتوى</span>
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-info"><i class="fas fa-edit"></i> تعديل</button>
+                                <button class="btn btn-danger"><i class="fas fa-user-times"></i> إزالة</button>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <div class="admin-avatar">س</div>
+                                <div class="admin-info">
+                                    <h3>سارة أحمد</h3>
+                                    <div class="admin-role">مشرف محتوى</div>
+                                </div>
+                            </div>
+                            <div class="admin-details">
+                                <div class="admin-detail">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>sara@4gamer.com</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>تاريخ الانضمام: 05/03/2023</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>الصلاحيات: إدارة المحتوى</span>
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-info"><i class="fas fa-edit"></i> تعديل</button>
+                                <button class="btn btn-danger"><i class="fas fa-user-times"></i> إزالة</button>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <div class="admin-avatar">ع</div>
+                                <div class="admin-info">
+                                    <h3>عمر خالد</h3>
+                                    <div class="admin-role">مشرف تقني</div>
+                                </div>
+                            </div>
+                            <div class="admin-details">
+                                <div class="admin-detail">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>omar@4gamer.com</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>تاريخ الانضمام: 20/03/2023</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>الصلاحيات: إدارة تقنية</span>
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-info"><i class="fas fa-edit"></i> تعديل</button>
+                                <button class="btn btn-danger"><i class="fas fa-user-times"></i> إزالة</button>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <div class="admin-avatar">ف</div>
+                                <div class="admin-info">
+                                    <h3>فاطمة محمد</h3>
+                                    <div class="admin-role">مشرف اقتراحات</div>
+                                </div>
+                            </div>
+                            <div class="admin-details">
+                                <div class="admin-detail">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>fatima@4gamer.com</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>تاريخ الانضمام: 12/04/2023</span>
+                                </div>
+                                <div class="admin-detail">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>الصلاحيات: إدارة الاقتراحات</span>
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button class="btn btn-info"><i class="fas fa-edit"></i> تعديل</button>
+                                <button class="btn btn-danger"><i class="fas fa-user-times"></i> إزالة</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- قسم الاقتراحات -->
+                <div class="admin-section" id="suggestions">
+                    <h2 class="admin-section-title"><i class="fas fa-lightbulb"></i> الاقتراحات المقدمة</h2>
+                    
+                    <div class="suggestions-filter">
+                        <select id="suggestionTypeFilter" class="filter-select">
+                            <option value="all">جميع الاقتراحات</option>
+                            <option value="game">ألعاب</option>
+                            <option value="tool">أدوات</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                        <select id="suggestionStatusFilter" class="filter-select">
+                            <option value="all">جميع الحالات</option>
+                            <option value="pending">قيد المراجعة</option>
+                            <option value="approved">تمت الموافقة</option>
+                            <option value="rejected">مرفوض</option>
+                        </select>
+                    </div>
+                    
+                    <div class="suggestions-list" id="suggestionsList">
+                        <div class="suggestion-card">
+                            <div class="suggestion-header">
+                                <div>
+                                    <h3 class="suggestion-title">إضافة لعبة Final Fantasy XVI</h3>
+                                    <div class="suggestion-meta">
+                                        <span><i class="fas fa-calendar-alt"></i> 15/04/2023</span>
+                                        <span><i class="fas fa-tag"></i> PS5</span>
+                                    </div>
+                                </div>
+                                <span class="suggestion-badge game">لعبة</span>
+                            </div>
+                            <div class="suggestion-content">
+                                أقترح إضافة لعبة Final Fantasy XVI للموقع. اللعبة من أحدث إصدارات سلسلة Final Fantasy الشهيرة وتحظى بشعبية كبيرة. يمكن إضافتها مع التعريب العربي غير الرسمي المتوفر حالياً.
+                            </div>
+                            <div class="suggestion-actions">
+                                <button class="btn btn-primary"><i class="fas fa-check-circle"></i> قبول</button>
+                                <button class="btn btn-danger"><i class="fas fa-times-circle"></i> رفض</button>
+                                <button class="btn btn-info"><i class="fas fa-envelope"></i> التواصل</button>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-card">
+                            <div class="suggestion-header">
+                                <div>
+                                    <h3 class="suggestion-title">إضافة أداة PS4 Toolbox</h3>
+                                    <div class="suggestion-meta">
+                                        <span><i class="fas fa-calendar-alt"></i> 12/04/2023</span>
+                                        <span><i class="fas fa-tag"></i> PS4</span>
+                                    </div>
+                                </div>
+                                <span class="suggestion-badge tool">أداة</span>
+                            </div>
+                            <div class="suggestion-content">
+                                أقترح إضافة أداة PS4 Toolbox وهي أداة متعددة الاستخدامات لأجهزة PS4 التي تحتوي على جيلبريك. توفر الأداة العديد من الوظائف المفيدة مثل نسخ الألعاب احتياطياً، تحسين أداء الجهاز، وإدارة الملفات بسهولة.
+                            </div>
+                            <div class="suggestion-actions">
+                                <button class="btn btn-primary"><i class="fas fa-check-circle"></i> قبول</button>
+                                <button class="btn btn-danger"><i class="fas fa-times-circle"></i> رفض</button>
+                                <button class="btn btn-info"><i class="fas fa-envelope"></i> التواصل</button>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-card">
+                            <div class="suggestion-header">
+                                <div>
+                                    <h3 class="suggestion-title">إضافة قسم للألعاب المستقلة (Indie Games)</h3>
+                                    <div class="suggestion-meta">
+                                        <span><i class="fas fa-calendar-alt"></i> 10/04/2023</span>
+                                        <span><i class="fas fa-tag"></i> عام</span>
+                                    </div>
+                                </div>
+                                <span class="suggestion-badge other">اقتراح آخر</span>
+                            </div>
+                            <div class="suggestion-content">
+                                أقترح إضافة قسم خاص بالألعاب المستقلة (Indie Games) على الموقع. هناك العديد من الألعاب المستقلة الرائعة على منصات PlayStation والتي لا تحظى بالاهتمام الكافي. يمكن أن يكون هذا القسم مفيداً للاعبين الذين يبحثون عن تجارب لعب مختلفة وفريدة.
+                            </div>
+                            <div class="suggestion-actions">
+                                <button class="btn btn-primary"><i class="fas fa-check-circle"></i> قبول</button>
+                                <button class="btn btn-danger"><i class="fas fa-times-circle"></i> رفض</button>
+                                <button class="btn btn-info"><i class="fas fa-envelope"></i> التواصل</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3 class="footer-title">عن 4GAMER</h3>
+                    <p>منصة عربية متخصصة في ألعاب PlayStation بمختلف إصداراتها مع تركيز خاص على الألعاب المعربة.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/C9_91" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section links">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="dmca.html">سياسة DMCA</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: <a href="mailto:4gamer.contact@gmail.com">4gamer.contact@gmail.com</a></p>
+                    <p><i class="fab fa-telegram"></i> تيليجرام: <a href="https://t.me/C9_91" target="_blank">@C9_91</a></p>
+                    <a href="contact.html" class="contact-btn">راسلنا الآن</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 - 2025 4GAMER. جميع الحقوق محفوظة.</p>
+                <p class="disclaimer">PlayStation هي علامة تجارية مسجلة لشركة Sony Interactive Entertainment Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/admin-panel.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // التبديل بين التبويبات
+            const tabs = document.querySelectorAll('.admin-tab');
+            const sections = document.querySelectorAll('.admin-section');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // إزالة الفئة النشطة من جميع التبويبات
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // إضافة الفئة النشطة للتبويب المحدد
+                    this.classList.add('active');
+                    
+                    // إخفاء جميع الأقسام
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // إظهار القسم المحدد
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // التحقق من تسجيل الدخول
+            function checkAuth() {
+                const isLoggedIn = localStorage.getItem('adminLoggedIn');
+                if (!isLoggedIn) {
+                    window.location.href = 'admin-login.html';
+                }
+            }
+            
+            // تسجيل الخروج
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    localStorage.removeItem('adminLoggedIn');
+                    localStorage.removeItem('adminUsername');
+                    window.location.href = 'admin-login.html';
+                });
+            }
+            
+            // معالجة نموذج إضافة لعبة
+            const addGameForm = document.getElementById('addGameForm');
+            if (addGameForm) {
+                addGameForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // عرض رسالة نجاح
+                    const notification = document.getElementById('notification');
+                    notification.className = 'notification success';
+                    notification.textContent = 'تمت إضافة اللعبة بنجاح!';
+                    notification.style.display = 'block';
+                    
+                    // إعادة تعيين النموذج
+                    addGameForm.reset();
+                    
+                    // إخفاء رسالة النجاح بعد 5 ثوانٍ
+                    setTimeout(function() {
+                        notification.style.display = 'none';
+                    }, 5000);
+                    
+                    // تحديث عدد الألعاب في لوحة المعلومات
+                    updateGameCount();
+                });
+            }
+            
+            // تحديث إحصائيات لوحة المعلومات
+            function updateStats() {
+                // الحصول على البيانات الحقيقية من localStorage
+                const games = JSON.parse(localStorage.getItem('games')) || [];
+                const suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
+                const admins = JSON.parse(localStorage.getItem('admins')) || [];
+                
+                // تحديث عدد الألعاب
+                document.getElementById('games-count').textContent = games.length > 0 ? games.length : 247;
+                
+                // تحديث عدد الاقتراحات
+                document.getElementById('suggestions-count').textContent = suggestions.length > 0 ? suggestions.length : 38;
+                
+                // تحديث عدد المشرفين
+                document.getElementById('admins-count').textContent = admins.length > 0 ? admins.length : 5;
+                
+                // تحديث عدد الزوار (من localStorage أو القيمة الافتراضية)
+                const visitors = localStorage.getItem('visitorCount') || 125487;
+                document.getElementById('visitors-count').textContent = visitors.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            
+            // تحديث عدد الألعاب
+            function updateGameCount() {
+                let games = JSON.parse(localStorage.getItem('games')) || [];
+                games.push({
+                    title: document.getElementById('gameTitle').value,
+                    platform: document.getElementById('gamePlatform').value,
+                    genre: document.getElementById('gameGenre').value,
+                    size: document.getElementById('gameSize').value,
+                    date: new Date().toLocaleDateString('ar-EG')
+                });
+                localStorage.setItem('games', JSON.stringify(games));
+                
+                // تحديث العدد في لوحة المعلومات
+                document.getElementById('games-count').textContent = games.length;
+            }
+            
+            // التحقق من تسجيل الدخول عند تحميل الصفحة
+            checkAuth();
+            
+            // تحديث الإحصائيات عند تحميل الصفحة
+            updateStats();
+            
+            // زيادة عدد الزوار عند تحميل الصفحة (للمحاكاة فقط)
+            function incrementVisitors() {
+                let count = parseInt(localStorage.getItem('visitorCount') || '125487');
+                count += 1;
+                localStorage.setItem('visitorCount', count);
+                document.getElementById('visitors-count').textContent = count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            
+            // زيادة عدد الزوار مرة واحدة عند تحميل الصفحة
+            incrementVisitors();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة DMCA - 4GAMER</title>
+    <meta name="description" content="سياسة حقوق النشر وإجراءات DMCA في موقع 4GAMER">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة DMCA */
+        .dmca-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .dmca-section {
+            margin-bottom: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .dmca-section h2 {
+            color: var(--heading-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .dmca-section h2 i {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+        }
+        
+        .dmca-section h3 {
+            color: var(--heading-color);
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dmca-section h3 i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .dmca-section p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .dmca-section ul, .dmca-section ol {
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+        
+        .dmca-section li {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .dmca-form {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .form-actions .submit-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        .form-actions .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .form-actions .reset-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-actions .reset-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .highlight-box {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border-right: 3px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+        
+        .legal-quote {
+            background-color: rgba(var(--accent-color-rgb), 0.05);
+            border-right: 3px solid var(--accent-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .legal-quote::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: rgba(var(--accent-color-rgb), 0.2);
+            font-size: 2rem;
+        }
+        
+        .legal-quote p {
+            margin-bottom: 10px;
+            padding-right: 30px;
+        }
+        
+        .legal-quote cite {
+            display: block;
+            text-align: left;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-top: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-method {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-details h4 {
+            margin: 0 0 5px;
+            color: var(--heading-color);
+        }
+        
+        .contact-details p {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .dmca-steps {
+            counter-reset: step-counter;
+            margin: 30px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        .dmca-step {
+            position: relative;
+            padding: 20px 30px 20px 0;
+            margin-bottom: 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .dmca-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .dmca-step h4 {
+            color: var(--heading-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .dmca-step p {
+            margin: 0;
+        }
+        
+        .dmca-contact {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .dmca-contact h3 {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        .dmca-contact p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .dmca-contact-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .dmca-contact-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .dmca-contact-btn i {
+            margin-left: 8px;
+        }
+        
+        /* تنسيقات متجاوبة */
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+            }
+            
+            .contact-method {
+                width: 100%;
+            }
+            
+            .dmca-step::before {
+                right: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">محسن الأداء لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">محسن الأداء لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="system-enhancements.html" class="dropdown-link">
+                    <span><i class="fas fa-rocket dropdown-icon"></i> تحسينات النظام</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-system-enhancements.html" class="dropdown-sublink">شروحات تحسينات النظام</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link active">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="suggest.html" class="dropdown-link">
+                    <span><i class="fas fa-lightbulb dropdown-icon"></i> اقترح لعبة أو أداة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            <section class="page-section">
+                <div class="section-header">
+                    <h1 class="section-title">سياسة DMCA</h1>
+                    <div class="section-subtitle">سياسة حقوق النشر وإجراءات الإبلاغ عن انتهاك حقوق الملكية الفكرية</div>
+                </div>
+                
+                <div class="dmca-container">
+                    <div class="dmca-section">
+                        <h2><i class="fas fa-gavel"></i> مقدمة</h2>
+                        <p>يحترم موقع 4GAMER حقوق الملكية الفكرية للآخرين ويلتزم بالامتثال لقانون الألفية للملكية الرقمية (DMCA). نحن نتبع سياسة صارمة للرد على أي إشعارات بانتهاك حقوق النشر وفقًا للقوانين المعمول بها.</p>
+                        <p>تم وضع هذه السياسة لتوضيح إجراءاتنا في التعامل مع المحتوى الذي يُزعم أنه ينتهك حقوق النشر، وكيفية تقديم إشعار DMCA، وكيفية الطعن في إشعار تم تقديمه ضد المحتوى الخاص بك.</p>
+                        
+                        <div class="legal-quote">
+                            <p>"قانون الألفية للملكية الرقمية (DMCA) هو قانون أمريكي يوفر آليات لحماية حقوق النشر في العصر الرقمي. يتضمن القانون أحكامًا تحمي مقدمي خدمات الإنترنت من المسؤولية عن انتهاكات حقوق النشر التي يرتكبها المستخدمون، شريطة اتباع إجراءات معينة، بما في ذلك الاستجابة السريعة لإشعارات انتهاك حقوق النشر."</p>
+                            <cite>المادة 512 من قانون حقوق النشر الأمريكي</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="dmca-section">
+                        <h2><i class="fas fa-balance-scale"></i> سياسة حقوق النشر</h2>
+                        <p>نحن في 4GAMER نحترم حقوق الملكية الفكرية ونتوقع من مستخدمينا القيام بالمثل. نحن نلتزم بما يلي:</p>
+                        <ul>
+                            <li>إزالة أي محتوى ينتهك حقوق النشر بعد التحقق من صحة الإشعار.</li>
+                            <li>إنهاء حسابات المستخدمين الذين ينتهكون حقوق النشر بشكل متكرر.</li>
+                            <li>الحفاظ على سجلات للإشعارات والإجراءات المتخذة.</li>
+                            <li>التعاون مع أصحاب حقوق النشر لحماية حقوقهم.</li>
+                        </ul>
+                        
+                        <h3><i class="fas fa-check-circle"></i> المحتوى المسموح به</h3>
+                        <p>يسمح موقع 4GAMER بنشر المحتوى التالي:</p>
+                        <ul>
+                            <li>المحتوى الأصلي الذي أنشأه المستخدم.</li>
+                            <li>المحتوى المرخص رسميًا من أصحاب الحقوق.</li>
+                            <li>المحتوى الذي يقع ضمن نطاق الاستخدام العادل أو التعامل العادل.</li>
+                            <li>المحتوى الموجود في المجال العام.</li>
+                        </ul>
+                        
+                        <h3><i class="fas fa-times-circle"></i> المحتوى غير المسموح به</h3>
+                        <p>لا يسمح موقع 4GAMER بنشر المحتوى التالي:</p>
+                        <ul>
+                            <li>المحتوى الذي ينتهك حقوق النشر دون إذن من صاحب الحق.</li>
+                            <li>المحتوى المقرصن أو المنسوخ بشكل غير قانوني.</li>
+                            <li>روابط أو إرشادات للوصول إلى محتوى مقرصن.</li>
+                            <li>أدوات أو برامج تستخدم لانتهاك حقوق النشر.</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <p>نحن نؤمن بأن احترام حقوق الملكية الفكرية أمر ضروري لدعم المبدعين والمطورين، ونشجع مستخدمينا على شراء المحتوى الأصلي ودعم صناعة الألعاب.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dmca-section">
+                        <h2><i class="fas fa-file-alt"></i> كيفية تقديم إشعار DMCA</h2>
+                        <p>إذا كنت تعتقد أن محتوى على موقعنا ينتهك حقوق النشر الخاصة بك، يمكنك تقديم إشعار DMCA. يجب أن يتضمن الإشعار المعلومات التالية وفقًا لمتطلبات قانون DMCA:</p>
+                        
+                        <div class="dmca-steps">
+                            <div class="dmca-step">
+                                <h4>تحديد هويتك</h4>
+                                <p>توقيع إلكتروني أو مادي للشخص المخول بالتصرف نيابة عن صاحب حق النشر.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>تحديد العمل المحمي</h4>
+                                <p>وصف العمل المحمي بحقوق النشر الذي تدعي انتهاكه، مع توفير معلومات كافية للتعرف عليه.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>تحديد المحتوى المخالف</h4>
+                                <p>تحديد المحتوى الذي تدعي أنه ينتهك حقوق النشر الخاصة بك، مع معلومات كافية لتمكيننا من تحديد موقعه (مثل URL).</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>معلومات الاتصال</h4>
+                                <p>توفير معلومات الاتصال الخاصة بك، بما في ذلك عنوان البريد الإلكتروني ورقم الهاتف والعنوان.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>بيان حسن النية</h4>
+                                <p>بيان بأنك تعتقد بحسن نية أن استخدام المواد بالطريقة المشكو منها غير مصرح به من قبل مالك حقوق النشر أو وكيله أو القانون.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>بيان دقة المعلومات</h4>
+                                <p>بيان، تحت طائلة عقوبة الحنث باليمين، بأن المعلومات الواردة في إشعارك دقيقة وأنك مالك حقوق النشر أو مخول بالتصرف نيابة عن مالك حقوق النشر.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <p><strong>ملاحظة هامة:</strong> تقديم إشعار DMCA كاذب عن عمد قد يؤدي إلى مسؤولية قانونية عن الأضرار، بما في ذلك التكاليف والرسوم القانونية. تأكد من أن لديك أساسًا قانونيًا قويًا قبل تقديم الإشعار.</p>
+                        </div>
+                        
+                        <div class="legal-quote">
+                            <p>"أي شخص يقدم عن عمد تحريفًا ماديًا بأن المواد أو النشاط ينتهك حقوق النشر، سيكون مسؤولاً عن أي أضرار (بما في ذلك التكاليف والرسوم القانونية) يتكبدها المدعى عليه المزعوم، أو مالك حقوق النشر أو الوكيل المرخص له، نتيجة لقيام مقدم الخدمة بالاعتماد على هذا التحريف في إزالة المواد أو تعطيل الوصول إليها."</p>
+                            <cite>المادة 512(f) من قانون حقوق النشر الأمريكي</cite>
+                        </div>
+                    </div>
+                    
+                    <div class="dmca-section">
+                        <h2><i class="fas fa-reply"></i> كيفية تقديم إشعار مضاد</h2>
+                        <p>إذا تم إزالة المحتوى الخاص بك نتيجة لإشعار DMCA وتعتقد أن المحتوى تمت إزالته عن طريق الخطأ أو التعريف الخاطئ، يمكنك تقديم إشعار مضاد. يجب أن يتضمن الإشعار المضاد المعلومات التالية:</p>
+                        
+                        <div class="dmca-steps">
+                            <div class="dmca-step">
+                                <h4>توقيعك</h4>
+                                <p>توقيعك الإلكتروني أو المادي.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>تحديد المحتوى المزال</h4>
+                                <p>تحديد المحتوى الذي تمت إزالته وموقعه قبل الإزالة (مثل URL).</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>بيان حسن النية</h4>
+                                <p>بيان تحت طائلة عقوبة الحنث باليمين بأنك تعتقد بحسن نية أن المحتوى تمت إزالته نتيجة خطأ أو تعريف خاطئ.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>معلومات الاتصال</h4>
+                                <p>اسمك وعنوانك ورقم هاتفك وعنوان بريدك الإلكتروني.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>الموافقة على الاختصاص القضائي</h4>
+                                <p>بيان بأنك توافق على الاختصاص القضائي للمحكمة الفيدرالية في المنطقة التي يقع فيها عنوانك، أو إذا كان عنوانك خارج الولايات المتحدة، لأي منطقة قضائية يقع فيها 4GAMER.</p>
+                            </div>
+                            
+                            <div class="dmca-step">
+                                <h4>قبول الخدمة</h4>
+                                <p>بيان بأنك ستقبل خدمة العملية من الشخص الذي قدم إشعار DMCA الأصلي.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <p><strong>ملاحظة هامة:</strong> عند استلام إشعار مضاد صالح، سنقدم نسخة منه إلى الشخص الذي قدم إشعار DMCA الأصلي. إذا لم نتلق إشعارًا في غضون 10-14 يوم عمل بأن مقدم الشكوى الأصلي يسعى للحصول على أمر قضائي، فسنقوم باستعادة المحتوى المحذوف.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dmca-section">
+                        <h2><i class="fas fa-user-shield"></i> معلومات الاتصال بوكيل DMCA</h2>
+                        <p>يمكنك إرسال إشعارات DMCA إلى وكيل DMCA المعين لدينا باستخدام المعلومات التالية:</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>البريد الإلكتروني</h4>
+                                    <p><a href="mailto:dmca@4gamer.com">dmca@4gamer.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>العنوان البريدي</h4>
+                                    <p>4GAMER DMCA Agent, P.O. Box 12345, Dubai, UAE</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3><i class="fas fa-clipboard-list"></i> نموذج الإبلاغ عن انتهاك حقوق النشر</h3>
+                        <p>يمكنك أيضًا استخدام النموذج أدناه للإبلاغ عن انتهاك حقوق النشر:</p>
+                        
+                        <div class="dmca-form">
+                            <form id="dmca-form">
+                                <div class="form-group">
+                                    <label for="full-name">الاسم الكامل *</label>
+                                    <input type="text" id="full-name" name="full-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">البريد الإلكتروني *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">رقم الهاتف</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address">العنوان *</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="original-work">وصف العمل الأصلي المحمي بحقوق النشر *</label>
+                                    <textarea id="original-work" name="original-work" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="infringing-content">رابط المحتوى المخالف (URL) *</label>
+                                    <input type="url" id="infringing-content" name="infringing-content" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="description">وصف الانتهاك *</label>
+                                    <textarea id="description" name="description" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="good-faith">إقرار حسن النية *</label>
+                                    <textarea id="good-faith" name="good-faith" required>أقر بحسن نية أن استخدام المواد المذكورة أعلاه غير مصرح به من قبل مالك حقوق النشر أو وكيله أو القانون.</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="accuracy">إقرار دقة المعلومات *</label>
+                                    <textarea id="accuracy" name="accuracy" required>أقر، تحت طائلة عقوبة الحنث باليمين، أن المعلومات الواردة في هذا الإشعار دقيقة، وأنني مالك حقوق النشر أو مخول بالتصرف نيابة عن مالك حقوق النشر.</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="electronic-signature">التوقيع الإلكتروني (اكتب اسمك الكامل) *</label>
+                                    <input type="text" id="electronic-signature" name="electronic-signature" required>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="reset" class="reset-btn">إعادة تعيين</button>
+                                    <button type="submit" class="submit-btn">إرسال الإشعار</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="dmca-section">
+                        <h2><i class="fas fa-question-circle"></i> الأسئلة الشائعة حول DMCA</h2>
+                        
+                        <h3><i class="fas fa-info-circle"></i> ما هو قانون DMCA؟</h3>
+                        <p>قانون الألفية للملكية الرقمية (DMCA) هو قانون أمريكي تم سنه في عام 1998 لحماية حقوق النشر في العصر الرقمي. يوفر القانون إطارًا قانونيًا للتعامل مع انتهاكات حقوق النشر عبر الإنترنت، ويحمي مقدمي الخدمات عبر الإنترنت من المسؤولية عن انتهاكات المستخدمين إذا اتبعوا إجراءات معينة.</p>
+                        
+                        <h3><i class="fas fa-info-circle"></i> كم من الوقت يستغرق معالجة إشعار DMCA؟</h3>
+                        <p>نحن نسعى لمعالجة جميع إشعارات DMCA في أسرع وقت ممكن، عادة في غضون 24-48 ساعة من استلامها. قد تستغرق الحالات المعقدة وقتًا أطول للتحقيق والتحقق.</p>
+                        
+                        <h3><i class="fas fa-info-circle"></i> هل يمكنني تقديم إشعار DMCA نيابة عن شخص آخر؟</h3>
+                        <p>نعم، يمكنك تقديم إشعار DMCA نيابة عن شخص آخر إذا كنت مخولاً قانونًا للتصرف نيابة عنه. يجب أن تذكر ذلك بوضوح في الإشعار وتقدم الوثائق التي تثبت تفويضك إذا طُلب منك ذلك.</p>
+                        
+                        <h3><i class="fas fa-info-circle"></i> ماذا يحدث بعد تقديم إشعار DMCA؟</h3>
+                        <p>بعد تقديم إشعار DMCA، سنقوم بمراجعته للتأكد من اكتماله وصحته. إذا كان الإشعار صالحًا، سنقوم بإزالة المحتوى المخالف وإخطار الطرف المسؤول عن نشره. يمكن للطرف المتضرر تقديم إشعار مضاد إذا اعتقد أن الإزالة تمت عن طريق الخطأ.</p>
+                    </div>
+                    
+                    <!-- قسم التواصل -->
+                    <div class="dmca-contact">
+                        <h3>هل لديك أسئلة إضافية حول سياسة DMCA؟</h3>
+                        <p>يمكنك زيارة صفحة الأسئلة الشائعة أو التواصل معنا مباشرة.</p>
+                        <a href="contact.html" class="dmca-contact-btn">
+                            اتصل بنا <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <div class="footer-logo-text">4GAMER</div>
+                    <div class="footer-tagline">منصة PlayStation العربية الأولى</div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">روابط سريعة</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                            <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                            <li><a href="news.html">الأخبار</a></li>
+                            <li><a href="tutorials-ps4.html">الشروحات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">الدعم</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="dmca.html">سياسة DMCA</a></li>
+                            <li><a href="suggest.html">اقترح لعبة أو أداة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">تابعنا</h3>
+                        <ul class="footer-social-links">
+                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i> فيسبوك</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i> تويتر</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                            <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> تيليجرام</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // معالجة نموذج DMCA
+            const dmcaForm = document.getElementById('dmca-form');
+            
+            if (dmcaForm) {
+                dmcaForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // التحقق من صحة النموذج
+                    const requiredFields = dmcaForm.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('error');
+                        } else {
+                            field.classList.remove('error');
+                        }
+                    });
+                    
+                    if (!isValid) {
+                        alert('يرجى ملء جميع الحقول المطلوبة.');
+                        return;
+                    }
+                    
+                    // في بيئة حقيقية، سيتم إرسال البيانات إلى الخادم هنا
+                    // لكن في هذا المثال، سنعرض رسالة نجاح فقط
+                    
+                    alert('تم إرسال إشعار DMCA بنجاح. سنراجع إشعارك ونتخذ الإجراء المناسب في أقرب وقت ممكن.');
+                    dmcaForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

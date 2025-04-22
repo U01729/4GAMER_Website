@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن - 4GAMER</title>
+    <meta name="description" content="تعرف على منصة 4GAMER - المنصة العربية الأولى المتخصصة في ألعاب PlayStation بجميع إصداراتها">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* أنماط خاصة بصفحة من نحن */
+        .about-header {
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.9)), url('images/about-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-gray);
+        }
+        
+        .about-section {
+            padding: 60px 0;
+        }
+        
+        .about-section:nth-child(even) {
+            background-color: var(--dark-surface);
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            background-color: var(--dark-surface-2);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-title {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .team-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .team-title {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .team-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-member-info {
+            padding: 20px;
+        }
+        
+        .team-member-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .team-member-role {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .team-member-bio {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: var(--dark-surface-2);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: all var(--transition-speed) ease;
+        }
+        
+        .team-social-link:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+        }
+        
+        .ad-placeholder {
+            background-color: var(--dark-surface-2);
+            border: 2px dashed #444;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .ad-placeholder-title {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+        }
+        
+        .ad-placeholder-desc {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* تعديلات للوضع المضيء */
+        [data-theme="light"] .about-header {
+            background: linear-gradient(rgba(248, 250, 252, 0.8), rgba(248, 250, 252, 0.9)), url('images/about-bg.jpg');
+        }
+        
+        [data-theme="light"] .ad-placeholder {
+            background-color: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+        }
+        
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: 1;
+            }
+            
+            .about-content {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link active">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- رأس صفحة من نحن -->
+    <header class="about-header">
+        <div class="container">
+            <h1 class="about-title">من نحن</h1>
+            <p class="about-subtitle">تعرف على منصة 4GAMER - المنصة العربية الأولى المتخصصة في ألعاب PlayStation بجميع إصداراتها</p>
+        </div>
+    </header>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-placeholder">
+            <h3 class="ad-placeholder-title">مساحة إعلانية</h3>
+            <p class="ad-placeholder-desc">يمكن إضافة إعلانات ربحية هنا</p>
+        </div>
+    </div>
+
+    <!-- قسم من نحن -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="images/about/about-1.jpg" alt="منصة 4GAMER">
+                </div>
+                <div class="about-content">
+                    <h2>قصة 4GAMER</h2>
+                    <p>
+                        تأسست منصة 4GAMER بهدف توفير مصدر شامل وموثوق لمحبي ألعاب PlayStation في العالم العربي. نحن نؤمن بأن اللاعبين العرب يستحقون تجربة ألعاب كاملة بلغتهم الأم، ولذلك نركز على توفير الألعاب المعربة والتعريبات الرسمية وغير الرسمية.
+                    </p>
+                    <p>
+                        بدأت رحلتنا كمجموعة صغيرة من عشاق ألعاب PlayStation الذين يشتركون في شغف واحد: جعل الألعاب متاحة باللغة العربية للجميع. ومع مرور الوقت، نمت المنصة لتصبح مرجعاً أساسياً للاعبين العرب الذين يبحثون عن ألعاب معربة وثيمات وتطبيقات وتحديثات لأجهزة PlayStation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم رؤيتنا -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>رؤيتنا ومهمتنا</h2>
+                    <p>
+                        <strong>رؤيتنا:</strong> أن نكون المنصة العربية الرائدة في مجال ألعاب PlayStation، ونساهم في إثراء المحتوى العربي في عالم الألعاب.
+                    </p>
+                    <p>
+                        <strong>مهمتنا:</strong> توفير مكتبة شاملة من ألعاب PlayStation المعربة والثيمات والتطبيقات وتحديثات النظام والجيلبريك والشروحات، مع التركيز على جودة المحتوى وسهولة الوصول إليه.
+                    </p>
+                    <p>
+                        نسعى جاهدين لتوفير تجربة مستخدم متميزة من خلال موقعنا الإلكتروني وتطبيق الهاتف المحمول وبوت التليجرام، ونحرص على تحديث المحتوى باستمرار لمواكبة أحدث التطورات في عالم PlayStation.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about/about-2.jpg" alt="رؤية 4GAMER">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">4GAMER بالأرقام</h2>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-title">لعبة معربة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-title">ثيم مميز</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-title">تطبيق متنوع</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-title">مستخدم شهرياً</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-placeholder">
+            <h3 class="ad-placeholder-title">مساحة إعلانية</h3>
+            <p class="ad-placeholder-desc">يمكن إضافة إعلانات ربحية هنا</p>
+        </div>
+    </div>
+
+    <!-- قسم ما يميزنا -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">ما يميزنا</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="feature-title">دعم اللغة العربية</h3>
+                    <p class="feature-desc">نركز على توفير الألعاب المعربة والتعريبات الرسمية وغير الرسمية</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="feature-title">مكتبة شاملة</h3>
+                    <p class="feature-desc">مكتبة متكاملة من الألعاب والثيمات والتطبيقات وتحديثات النظام</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">تحديث مستمر</h3>
+                    <p class="feature-desc">نحرص على تحديث المحتوى باستمرار لمواكبة أحدث التطورات</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">مجتمع متفاعل</h3>
+                    <p class="feature-desc">مجتمع نشط من محبي ألعاب PlayStation في العالم العربي</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">منصات متعددة</h3>
+                    <p class="feature-desc">موقع إلكتروني وتطبيق موبايل وبوت تليجرام لتلبية احتياجات المستخدمين</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">دعم فني</h3>
+                    <p class="feature-desc">فريق دعم فني متخصص للإجابة على استفسارات المستخدمين</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم فريق العمل -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="team-title">فريق العمل</h2>
+            <p class="about-subtitle">نفتخر بفريق عملنا المتميز الذي يعمل بجد لتوفير أفضل تجربة لمستخدمي منصة 4GAMER</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team/team1.jpg" alt="مؤسس المنصة" class="team-member-image">
+                    <div class="team-member-info">
+                        <h3 class="team-member-name">مؤسس المنصة</h3>
+                        <div class="team-member-role">المؤسس والمدير التنفيذي</div>
+                        <p class="team-member-bio">مؤسس منصة 4GAMER ومطور رئيسي للموقع والتطبيق، خبير في مجال ألعاب PlayStation وشغوف بالتعريب.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/team/team2.jpg" alt="مدير المحتوى" class="team-member-image">
+                    <div class="team-member-info">
+                        <h3 class="team-member-name">مدير المحتوى</h3>
+                        <div class="team-member-role">مدير المحتوى</div>
+                        <p class="team-member-bio">مسؤول عن إدارة محتوى المنصة وضمان جودته وتحديثه باستمرار، خبير في مجال التعريب والترجمة.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/team/team3.jpg" alt="مطور التطبيق" class="team-member-image">
+                    <div class="team-member-info">
+                        <h3 class="team-member-name">مطور التطبيق</h3>
+                        <div class="team-member-role">مطور تطبيقات</div>
+                        <p class="team-member-bio">مسؤول عن تطوير وصيانة تطبيق 4GAMER للهواتف الذكية، خبير في تطوير تطبيقات Python وKivy.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/team/team4.jpg" alt="مسؤول الدعم الفني" class="team-member-image">
+                    <div class="team-member-info">
+                        <h3 class="team-member-name">مسؤول الدعم الفني</h3>
+                        <div class="team-member-role">الدعم الفني</div>
+                        <p class="team-member-bio">مسؤول عن تقديم الدعم الفني للمستخدمين والإجابة على استفساراتهم، خبير في أجهزة PlayStation وحل المشكلات.</p>
+                        <div class="team-social">
+                            <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="team-social-link"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مكان للإعلانات -->
+    <div class="container">
+        <div class="ad-placeholder">
+            <h3 class="ad-placeholder-title">مساحة إعلانية</h3>
+            <p class="ad-placeholder-desc">يمكن إضافة إعلانات ربحية هنا</p>
+        </div>
+    </div>
+
+    <!-- قسم انضم إلينا -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="images/about/about-3.jpg" alt="انضم إلى 4GAMER">
+                </div>
+                <div class="about-content">
+                    <h2>انضم إلى مجتمعنا</h2>
+                    <p>
+                        نحن نؤمن بقوة المجتمع ونسعى دائماً لتوسيع شبكتنا من محبي ألعاب PlayStation في العالم العربي. انضم إلى قناتنا على التليجرام للحصول على أحدث الأخبار والتحديثات والإعلانات.
+                    </p>
+                    <p>
+                        كما يمكنك المساهمة في إثراء المحتوى العربي في عالم الألعاب من خلال مشاركة تجاربك واقتراحاتك وملاحظاتك معنا. نحن نرحب دائماً بالأفكار الجديدة والتعاون مع المهتمين بمجال ألعاب PlayStation.
+                    </p>
+                    <a href="https://t.me/C9_91" class="btn" target="_blank">
+                        <i class="fab fa-telegram"></i> انضم للقناة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-text"><span>4</span>GAMER</div>
+                    </div>
+                    <p class="footer-about">
+                        منصة متكاملة مخصصة لألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات الرسمية وغير الرسمية.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="themes.html">الثيمات</a></li>
+                        <li><a href="apps.html">التطبيقات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">الأقسام</h3>
+                    <ul class="footer-links">
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="https://t.me/C9_91" target="_blank">قناة التليجرام</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> قناة التليجرام</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+</body>
+</html>

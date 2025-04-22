@@ -1,0 +1,235 @@
+/* 
+ * 4GAMER Website - Theme Toggle Styles
+ * أنماط تبديل السمة لموقع 4GAMER
+ */
+
+/* متغيرات الألوان للوضع المظلم (الافتراضي) */
+:root {
+  --primary-color: #4ade80;
+  --primary-dark: #22c55e;
+  --primary-light: #86efac;
+  --dark-bg: #121212;
+  --dark-surface: #1e1e1e;
+  --dark-surface-2: #2d2d2d;
+  --text-light: #f8fafc;
+  --text-gray: #94a3b8;
+  --accent-color: #3b82f6;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --success-color: #10b981;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s;
+}
+
+/* متغيرات الألوان للوضع المضيء */
+[data-theme="light"] {
+  --primary-color: #22c55e;
+  --primary-dark: #16a34a;
+  --primary-light: #4ade80;
+  --dark-bg: #f8fafc;
+  --dark-surface: #ffffff;
+  --dark-surface-2: #f1f5f9;
+  --text-light: #1e293b;
+  --text-gray: #64748b;
+  --accent-color: #2563eb;
+  --danger-color: #dc2626;
+  --warning-color: #d97706;
+  --success-color: #059669;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثير انتقالي عند تغيير السمة */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* زر تبديل السمة */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-speed) ease;
+  margin-right: 15px;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: rotate(15deg);
+}
+
+/* تعديلات الشريط العلوي للوضع المضيء */
+[data-theme="light"] .navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* تعديلات البطاقات للوضع المضيء */
+[data-theme="light"] .card,
+[data-theme="light"] .feature-card,
+[data-theme="light"] .app-card,
+[data-theme="light"] .jailbreak-card,
+[data-theme="light"] .news-card,
+[data-theme="light"] .theme-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* تعديلات الأزرار للوضع المضيء */
+[data-theme="light"] .btn {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .btn:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* تعديلات شريط التمرير للوضع المضيء */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--dark-surface-2);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* تعديلات الشعار للوضع المضيء */
+[data-theme="light"] .logo-text {
+  color: var(--text-light);
+}
+
+/* تعديلات الروابط للوضع المضيء */
+[data-theme="light"] .nav-links a {
+  color: var(--text-light);
+}
+
+/* تعديلات القسم الرئيسي للوضع المضيء */
+[data-theme="light"] .hero {
+  background: linear-gradient(rgba(248, 250, 252, 0.8), rgba(248, 250, 252, 0.9)), url('../images/hero-bg.jpg');
+}
+
+/* تعديلات الأقسام للوضع المضيء */
+[data-theme="light"] .features,
+[data-theme="light"] .themes,
+[data-theme="light"] .contact {
+  background-color: var(--dark-surface-2);
+}
+
+/* تعديلات تذييل الصفحة للوضع المضيء */
+[data-theme="light"] .footer {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+[data-theme="light"] .footer-about,
+[data-theme="light"] .footer-links a,
+[data-theme="light"] .footer-newsletter p,
+[data-theme="light"] .copyright {
+  color: #cbd5e1;
+}
+
+/* تعديلات البحث للوضع المضيء */
+[data-theme="light"] .search-input {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+[data-theme="light"] .search-input:focus {
+  border-color: var(--primary-color);
+  background-color: #ffffff;
+}
+
+[data-theme="light"] .search-results {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .search-result-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .search-result-item:hover {
+  background-color: #f8fafc;
+}
+
+[data-theme="light"] .search-result-title {
+  color: #1e293b;
+}
+
+[data-theme="light"] .search-highlight {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #16a34a;
+}
+
+[data-theme="light"] .search-category {
+  background-color: #e2e8f0;
+  color: #64748b;
+}
+
+[data-theme="light"] .search-category:hover,
+[data-theme="light"] .search-category.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+/* تعديلات الشريط العلوي الجديد */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+
+.brand-tagline {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  margin-right: 10px;
+}
+
+/* تعديلات الشريط العلوي للوضع المضيء */
+[data-theme="light"] .brand-logo {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* تأثير انتقالي للشعار */
+.brand-logo {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand:hover .brand-logo {
+  transform: scale(1.05);
+}
+
+/* تعديلات الشريط العلوي الجديد للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .brand-tagline {
+    display: none;
+  }
+  
+  .navbar-actions {
+    margin-right: auto;
+  }
+}

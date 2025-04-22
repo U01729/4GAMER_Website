@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاقتراحات المقبولة - 4GAMER</title>
+    <meta name="description" content="استعرض الاقتراحات المقبولة من المستخدمين وصوّت على الاقتراحات التي تفضلها - 4GAMER منصة PlayStation العربية الأولى">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    <link rel="stylesheet" href="css/accepted-suggestions.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم اقتراح لعبة أو أداة -->
+            <li class="dropdown-item highlight-item">
+                <a href="suggest.html" class="dropdown-link">
+                    <span><i class="fas fa-lightbulb dropdown-icon"></i> اقترح لعبة أو أداة</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- قسم صفحة الاقتراحات المقبولة -->
+    <section class="section accepted-suggestions-section">
+        <div class="container">
+            <h1 class="section-title">الاقتراحات المقبولة</h1>
+            
+            <div class="suggestions-intro">
+                <p>هنا يمكنك الاطلاع على الاقتراحات التي تمت الموافقة عليها من قبل فريق 4GAMER. يمكنك التصويت على الاقتراحات التي تفضلها لمساعدتنا في تحديد أولويات التنفيذ.</p>
+            </div>
+            
+            <!-- قسم الإحصائيات -->
+            <div class="suggestions-stats">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="stats-info">
+                        <span class="stats-value" id="totalSuggestions">0</span>
+                        <span class="stats-label">إجمالي الاقتراحات</span>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stats-info">
+                        <span class="stats-value" id="acceptedSuggestions">0</span>
+                        <span class="stats-label">الاقتراحات المقبولة</span>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="stats-info">
+                        <span class="stats-value" id="implementedSuggestions">0</span>
+                        <span class="stats-label">تم تنفيذها</span>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stats-info">
+                        <span class="stats-value" id="monthlySuggestions">0</span>
+                        <span class="stats-label">اقتراحات هذا الشهر</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم البحث والتصفية -->
+            <div class="suggestions-filter">
+                <div class="filter-header">
+                    <h3><i class="fas fa-filter"></i> تصفية الاقتراحات</h3>
+                </div>
+                
+                <div class="filter-body">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label for="filterType">نوع المحتوى</label>
+                            <select id="filterType" class="filter-select">
+                                <option value="all">جميع الأنواع</option>
+                                <option value="game">ألعاب</option>
+                                <option value="tool">أدوات</option>
+                                <option value="tutorial">شروحات</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterStatus">الحالة</label>
+                            <select id="filterStatus" class="filter-select">
+                                <option value="all">جميع الحالات</option>
+                                <option value="approved">تمت الموافقة</option>
+                                <option value="in-progress">قيد التنفيذ</option>
+                                <option value="implemented">تم التنفيذ</option>
+                                <option value="priority">ذات أولوية</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="filterSort">الترتيب</label>
+                            <select id="filterSort" class="filter-select">
+                                <option value="date-desc">الأحدث أولاً</option>
+                                <option value="date-asc">الأقدم أولاً</option>
+                                <option value="votes-desc">الأكثر تصويتاً</option>
+                                <option value="votes-asc">الأقل تصويتاً</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group search-group">
+                            <label for="searchSuggestions">بحث</label>
+                            <div class="search-input-wrapper">
+                                <input type="text" id="searchSuggestions" class="filter-input" placeholder="ابحث عن اقتراح...">
+                                <button id="searchButton" class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-actions">
+                            <button id="applyFilters" class="btn filter-btn">
+                                <i class="fas fa-filter"></i> تطبيق التصفية
+                            </button>
+                            <button id="resetFilters" class="btn reset-filter-btn">
+                                <i class="fas fa-undo"></i> إعادة تعيين
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم الاقتراحات ذات الأولوية -->
+            <div class="priority-suggestions">
+                <div class="section-header">
+                    <h3><i class="fas fa-star"></i> الاقتراحات ذات الأولوية</h3>
+                    <div class="section-actions">
+                        <button id="viewAllPriority" class="btn view-all-btn">
+                            <i class="fas fa-list"></i> عرض الكل
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="suggestions-grid" id="prioritySuggestionsGrid">
+                    <!-- سيتم إضافة الاقتراحات ذات الأولوية هنا بواسطة JavaScript -->
+                    <div class="empty-state" id="emptyPrioritySuggestions">
+                        <i class="fas fa-star empty-icon"></i>
+                        <h4>لا توجد اقتراحات ذات أولوية حالياً</h4>
+                        <p>صوّت على الاقتراحات التي تفضلها لتظهر هنا</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم جميع الاقتراحات المقبولة -->
+            <div class="all-suggestions">
+                <div class="section-header">
+                    <h3><i class="fas fa-list"></i> جميع الاقتراحات المقبولة</h3>
+                    <div class="section-info">
+                        <span id="suggestionsCount">0</span> اقتراح
+                    </div>
+                </div>
+                
+                <div class="suggestions-list" id="allSuggestionsList">
+                    <!-- سيتم إضافة الاقتراحات هنا بواسطة JavaScript -->
+                    <div class="empty-state" id="emptySuggestions">
+                        <i class="fas fa-lightbulb empty-icon"></i>
+                        <h4>لا توجد اقتراحات مقبولة حالياً</h4>
+                        <p>يمكنك <a href="suggest.html">إرسال اقتراح جديد</a> ليتم مراجعته من قبل فريق 4GAMER</p>
+                    </div>
+                </div>
+                
+                <!-- ترقيم الصفحات -->
+                <div class="pagination" id="suggestionsPagination">
+                    <!-- سيتم إضافة أزرار الترقيم هنا بواسطة JavaScript -->
+                </div>
+            </div>
+            
+            <!-- قسم أسباب الرفض -->
+            <div class="rejection-reasons">
+                <div class="section-header">
+                    <h3><i class="fas fa-info-circle"></i> أسباب رفض بعض الاقتراحات</h3>
+                </div>
+                
+                <div class="reasons-list">
+                    <div class="reason-item">
+                        <div class="reason-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h4>غير متوافقة</h4>
+                            <p>اللعبة أو الأداة غير متوافقة مع أنظمة PS4/PS5 المهكرة، أو تتطلب إصدارات برمجية غير مدعومة حالياً.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reason-item">
+                        <div class="reason-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h4>غير متوفرة</h4>
+                            <p>اللعبة أو الأداة غير متوفرة للتحميل حالياً، أو جميع روابطها متوقفة ولا يمكن إعادة رفعها.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reason-item">
+                        <div class="reason-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h4>مخالفة للشروط</h4>
+                            <p>الاقتراح يخالف شروط الموقع أو يتضمن محتوى غير لائق أو محظور.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="reason-item">
+                        <div class="reason-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="reason-content">
+                            <h4>تم تقديمها مسبقاً</h4>
+                            <p>تم تقديم نفس الاقتراح مسبقاً وهو قيد المراجعة أو التنفيذ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم إرسال اقتراح جديد -->
+            <div class="new-suggestion-cta">
+                <div class="cta-content">
+                    <h3>لديك اقتراح جديد؟</h3>
+                    <p>ساعدنا في تحسين موقع 4GAMER من خلال اقتراح ألعاب أو أدوات أو شروحات جديدة.</p>
+                </div>
+                <a href="suggest.html" class="btn cta-btn">
+                    <i class="fas fa-lightbulb"></i> إرسال اقتراح جديد
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-brand">4GAMER</div>
+                    <p>منصة PlayStation العربية الأولى</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>روابط سريعة</h3>
+                        <ul>
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                            <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                            <li><a href="news.html">الأخبار</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>الدعم</h3>
+                        <ul>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="dmca.html">سياسة DMCA</a></li>
+                            <li><a href="suggest.html">اقترح لعبة أو أداة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>تابعنا</h3>
+                        <div class="social-links">
+                            <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 4GAMER</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة تفاصيل الاقتراح -->
+    <div class="suggestion-modal" id="suggestionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">تفاصيل الاقتراح</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body" id="modalBody">
+                <!-- سيتم إضافة تفاصيل الاقتراح هنا بواسطة JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/accepted-suggestions.js"></script>
+</body>
+</html>

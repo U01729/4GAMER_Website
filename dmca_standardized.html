@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة DMCA - 4GAMER</title>
+    <meta name="description" content="سياسة حقوق النشر وإجراءات DMCA في موقع 4GAMER - منصة PlayStation العربية الأولى">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة DMCA */
+        .dmca-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .dmca-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .dmca-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .dmca-header p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        
+        .dmca-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .dmca-section h2 {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dmca-section h2 i {
+            color: var(--primary-color);
+            margin-left: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .dmca-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .dmca-section ul {
+            margin: 20px 0;
+            padding-right: 20px;
+        }
+        
+        .dmca-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .dmca-quote {
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border-right: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .dmca-contact {
+            background-color: rgba(var(--accent-color-rgb), 0.1);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .dmca-contact h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .dmca-contact p {
+            margin-bottom: 10px;
+        }
+        
+        .dmca-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .dmca-contact a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .dmca-header h1 {
+                font-size: 2rem;
+            }
+            
+            .dmca-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .dmca-section p, .dmca-section li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item active">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="dmca-container">
+            <div class="dmca-header">
+                <h1>سياسة حقوق النشر وإجراءات DMCA</h1>
+                <p>نلتزم باحترام حقوق الملكية الفكرية ونتبع إجراءات قانون الألفية للملكية الرقمية (DMCA)</p>
+            </div>
+            
+            <div class="dmca-section">
+                <h2><i class="fas fa-gavel"></i> مقدمة عن قانون DMCA</h2>
+                <p>قانون الألفية للملكية الرقمية (Digital Millennium Copyright Act) هو قانون أمريكي يوفر حماية لمالكي حقوق النشر على الإنترنت، ويحدد إجراءات إشعار وإزالة المحتوى المخالف لحقوق النشر.</p>
+                
+                <div class="dmca-quote">
+                    "يهدف قانون DMCA إلى تحقيق التوازن بين حماية حقوق المؤلفين والناشرين من جهة، وتسهيل انتشار المعلومات والمعرفة من جهة أخرى."
+                </div>
+                
+                <p>نحن في موقع 4GAMER نحترم حقوق الملكية الفكرية للآخرين ونتوقع من مستخدمينا القيام بالمثل. سنستجيب بسرعة لإشعارات الانتهاك المزعوم لحقوق النشر وفقًا لقانون DMCA.</p>
+            </div>
+            
+            <div class="dmca-section">
+                <h2><i class="fas fa-exclamation-triangle"></i> سياستنا تجاه انتهاكات حقوق النشر</h2>
+                <p>نحن نتبع سياسة صارمة فيما يتعلق بانتهاكات حقوق النشر:</p>
+                <ul>
+                    <li>نحترم حقوق الملكية الفكرية ونلتزم بالقوانين المتعلقة بها.</li>
+                    <li>نستجيب بسرعة لإشعارات انتهاك حقوق النشر المقدمة وفقًا للإجراءات القانونية.</li>
+                    <li>نحتفظ بالحق في إزالة أي محتوى يُزعم أنه ينتهك حقوق النشر دون إشعار مسبق.</li>
+                    <li>نتخذ إجراءات مناسبة ضد المستخدمين المتكررين لانتهاكات حقوق النشر، بما في ذلك إنهاء الوصول إلى خدماتنا.</li>
+                </ul>
+            </div>
+            
+            <div class="dmca-section">
+                <h2><i class="fas fa-file-alt"></i> كيفية تقديم إشعار DMCA</h2>
+                <p>إذا كنت تعتقد أن محتوى على موقعنا ينتهك حقوق النشر الخاصة بك، يرجى تقديم إشعار DMCA يتضمن المعلومات التالية:</p>
+                <ol>
+                    <li>توقيع إلكتروني أو مادي للشخص المخول بالتصرف نيابة عن مالك حقوق النشر.</li>
+                    <li>تحديد العمل المحمي بحقوق النشر الذي تدعي انتهاكه.</li>
+                    <li>تحديد المحتوى الذي تدعي أنه ينتهك حقوقك وترغب في إزالته، مع معلومات كافية لتمكيننا من تحديد موقعه (مثل URL).</li>
+                    <li>معلومات الاتصال الخاصة بك، بما في ذلك عنوان البريد الإلكتروني ورقم الهاتف والعنوان.</li>
+                    <li>بيان منك يفيد بأنك تعتقد بحسن نية أن استخدام المواد بالطريقة المشكو منها غير مصرح به من قبل مالك حقوق النشر أو وكيله أو القانون.</li>
+                    <li>بيان، تحت طائلة عقوبة الحنث باليمين، بأن المعلومات الواردة في إشعارك دقيقة وأنك مالك حقوق النشر أو مخول بالتصرف نيابة عن مالك حقوق النشر.</li>
+                </ol>
+            </div>
+            
+            <div class="dmca-section">
+                <h2><i class="fas fa-balance-scale"></i> الاستخدام العادل</h2>
+                <p>نحن ندرك مبدأ "الاستخدام العادل" (Fair Use) الذي يسمح باستخدام محدود للمواد المحمية بحقوق النشر دون الحاجة إلى إذن من مالك الحقوق. يشمل الاستخدام العادل عادةً:</p>
+                <ul>
+                    <li>النقد والتعليق</li>
+                    <li>الإبلاغ الإخباري</li>
+                    <li>التدريس والبحث</li>
+                    <li>المحاكاة الساخرة</li>
+                </ul>
+                <p>ومع ذلك، فإن تحديد ما إذا كان استخدام معين يعتبر "استخدامًا عادلًا" يعتمد على عدة عوامل ويتم تقييمه على أساس كل حالة على حدة.</p>
+            </div>
+            
+            <div class="dmca-contact">
+                <h3>اتصل بنا بخصوص قضايا حقوق النشر</h3>
+                <p>لتقديم إشعار DMCA أو للاستفسار عن قضايا حقوق النشر، يرجى التواصل معنا عبر:</p>
+                <p>البريد الإلكتروني: <a href="mailto:4gamer.dmca@gmail.com">4gamer.dmca@gmail.com</a></p>
+                <p>أو من خلال <a href="contact.html">نموذج الاتصال</a> على موقعنا</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3 class="footer-title">عن 4GAMER</h3>
+                    <p>منصة عربية متخصصة في ألعاب PlayStation بمختلف إصداراتها مع تركيز خاص على الألعاب المعربة.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/C9_91" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section links">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="dmca.html">سياسة DMCA</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h3 class="footer-title">تواصل معنا</h3>
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: <a href="mailto:4gamer.contact@gmail.com">4gamer.contact@gmail.com</a></p>
+                    <p><i class="fab fa-telegram"></i> تيليجرام: <a href="https://t.me/C9_91" target="_blank">@C9_91</a></p>
+                    <a href="contact.html" class="contact-btn">راسلنا الآن</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 - 2025 4GAMER. جميع الحقوق محفوظة.</p>
+                <p class="disclaimer">PlayStation هي علامة تجارية مسجلة لشركة Sony Interactive Entertainment Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+</body>
+</html>

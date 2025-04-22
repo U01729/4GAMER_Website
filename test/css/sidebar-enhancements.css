@@ -1,0 +1,161 @@
+/* 
+ * 4GAMER Website - تحسينات القائمة الجانبية
+ * تنسيقات إضافية للقائمة الجانبية لإبراز العناصر المهمة
+ */
+
+/* تنسيق عناصر الأسئلة الشائعة وDMCA */
+.highlight-item {
+    margin: 10px 0;
+    border-radius: var(--border-radius);
+    background: linear-gradient(45deg, #4ade80, #22c55e);
+    box-shadow: 0 4px 10px rgba(74, 222, 128, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    z-index: 1;
+}
+
+.highlight-item:hover {
+    transform: translateX(-5px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(74, 222, 128, 0.4);
+}
+
+.highlight-item .dropdown-link {
+    padding: 14px 18px;
+    font-weight: 700;
+    color: var(--dark-bg) !important;
+    position: relative;
+    z-index: 2;
+}
+
+.highlight-item .dropdown-icon {
+    color: var(--dark-bg);
+    font-size: 1.3em;
+    margin-left: 10px;
+}
+
+/* تنسيق زر تسجيل دخول المسؤول */
+.admin-login-item {
+    margin-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+    position: relative;
+}
+
+.admin-login-item::before {
+    content: 'منطقة المسؤولين';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background-color: var(--dark-bg);
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.admin-link {
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    border-radius: var(--border-radius);
+    padding: 16px 20px !important;
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.admin-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    z-index: -1;
+}
+
+.admin-link:hover {
+    background: linear-gradient(45deg, #2563eb, #1e40af);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.5);
+}
+
+.admin-link .dropdown-icon {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.3em;
+}
+
+/* تحسينات عامة للقائمة الجانبية */
+.dropdown-menu {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--dark-surface);
+}
+
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: var(--dark-surface);
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* تحسين تباعد العناصر */
+.dropdown-items {
+    padding: 10px 0;
+}
+
+.dropdown-item {
+    margin: 2px 0;
+}
+
+/* تأثيرات حركية للقائمة */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(74, 222, 128, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    }
+}
+
+.highlight-item {
+    animation: pulse 2s infinite;
+}
+
+/* تحسين ظهور القائمة على الأجهزة المحمولة */
+@media (max-width: 768px) {
+    .highlight-item, .admin-login-item {
+        margin: 8px 0;
+    }
+    
+    .admin-link {
+        padding: 10px !important;
+    }
+}
